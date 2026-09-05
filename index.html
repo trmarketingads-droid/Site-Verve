@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verve Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Qasbyne';
+  src: url('Qasbyne.otf') format('opentype');
+  font-weight: 400;
+}
+
+:root {
+  --marrom: #4A382D;
+  --vinho:  #550B18;
+  --azul:   #D1E2EC;
+  --bege:   #E5D7BC;
+  --off:    #FAF7F2;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--off); font-family:'Satoshi',sans-serif; color:var(--marrom); overflow-x:hidden; }
+.qa  { font-family:'Qasbyne','Georgia',serif; }
+.ibm { font-family:'IBM Plex Mono',monospace; }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:1.5rem 6vw;
+  display:flex; justify-content:space-between; align-items:center;
+  background:rgba(250,247,242,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.nav-marca { font-family:'Qasbyne','Georgia',serif; font-size:1.05rem; color:var(--marrom); text-decoration:none; }
+.nav-cta {
+  font-family:'IBM Plex Mono',monospace; font-size:0.56rem;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--azul); background:var(--marrom);
+  padding:0.7rem 1.5rem; text-decoration:none; transition:opacity 0.2s;
+}
+.nav-cta:hover { opacity:0.85; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  padding:11rem 6vw 7rem;
+  display:flex; flex-direction:column; justify-content:center;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.hero-headline {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:clamp(2.8rem,5.5vw,5.2rem);
+  font-weight:400; color:var(--marrom);
+  line-height:1.08; letter-spacing:-0.02em;
+  max-width:820px; margin-bottom:3rem;
+}
+.hero-bottom {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:4rem; align-items:end;
+  padding-top:3rem;
+  border-top:1px solid rgba(74,56,45,0.08);
+}
+.hero-tagline {
+  font-family:'IBM Plex Mono',monospace; font-size:0.62rem;
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.35; margin-bottom:1.25rem;
+}
+.hero-sub {
+  font-size:1rem; line-height:1.8;
+  color:var(--marrom); opacity:0.55; max-width:460px;
+}
+.hero-actions { display:flex; flex-direction:column; align-items:flex-end; gap:0.75rem; }
+.btn {
+  display:inline-flex; align-items:center; gap:0.75rem;
+  font-family:'IBM Plex Mono',monospace; font-size:0.58rem;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--azul); background:var(--marrom);
+  padding:1rem 2rem; text-decoration:none; transition:opacity 0.25s;
+  white-space:nowrap;
+}
+.btn:hover { opacity:0.85; }
+.btn svg { transition:transform 0.25s; }
+.btn:hover svg { transform:translateX(4px); }
+
+/* ── DEFINIÇÃO VERVE ── */
+.definicao {
+  background:var(--marrom);
+  padding:6rem 6vw;
+  display:grid; grid-template-columns:1fr 2fr;
+  gap:6rem; align-items:center;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.def-palavra {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:clamp(4rem,8vw,7rem);
+  color:var(--bege); opacity:0.12; line-height:1;
+}
+.def-tipo {
+  font-family:'IBM Plex Mono',monospace; font-size:0.56rem;
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--bege); opacity:0.4; margin-bottom:1.25rem;
+}
+.def-origem {
+  font-family:'IBM Plex Mono',monospace; font-size:0.56rem;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--bege); opacity:0.35; margin-bottom:1.5rem;
+  font-style:normal;
+}
+.def-texto {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:clamp(1.1rem,1.8vw,1.5rem);
+  color:var(--bege); line-height:1.75; opacity:0.88;
+}
+.def-ancora {
+  font-family:'IBM Plex Mono',monospace; font-size:0.6rem;
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--bege); opacity:0.38; margin-top:2rem;
+}
+
+/* ── O QUE É A VERVE + SERVIÇOS ── */
+.verve {
+  padding:8rem 6vw;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:7rem; align-items:start;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.sec-eyebrow {
+  font-family:'IBM Plex Mono',monospace; font-size:0.54rem;
+  letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.35; margin-bottom:1rem;
+}
+.sec-titulo {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  color:var(--marrom); line-height:1.1; margin-bottom:2rem;
+}
+.verve-frase {
+  font-size:0.95rem; line-height:1.85;
+  color:var(--marrom); opacity:0.58; max-width:420px;
+}
+.verve-destaque {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:1.05rem; color:var(--marrom);
+  line-height:1.7; margin-top:2rem;
+  padding-left:1.25rem;
+  border-left:2px solid var(--marrom);
+  opacity:0.7;
+}
+
+/* Serviços grid */
+.serv-eyebrow {
+  font-family:'IBM Plex Mono',monospace; font-size:0.54rem;
+  letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.35; margin-bottom:1.5rem;
+}
+.serv-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+}
+.serv-card {
+  background:rgba(74,56,45,0.03);
+  border:0.5px solid rgba(74,56,45,0.08);
+  padding:1.5rem;
+}
+.serv-card-full { grid-column:1/-1; }
+.serv-n {
+  font-family:'IBM Plex Mono',monospace; font-size:0.5rem;
+  color:var(--marrom); opacity:0.2; margin-bottom:0.5rem;
+}
+.serv-nome {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:1rem; color:var(--marrom); margin-bottom:0.3rem;
+}
+.serv-desc {
+  font-size:0.78rem; line-height:1.65;
+  color:var(--marrom); opacity:0.48; margin-top:0.35rem;
+}
+.serv-fn {
+  font-family:'IBM Plex Mono',monospace; font-size:0.48rem;
+  letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.35; margin-top:0.25rem;
+}
+
+
+/* Serviços acordeão */
+.serv-acordeao { display:flex; flex-direction:column; }
+.serv-acc-item { border-bottom:0.5px solid rgba(74,56,45,0.08); }
+.serv-acc-item:first-child { border-top:0.5px solid rgba(74,56,45,0.08); }
+.serv-acc-btn {
+  width:100%; background:none; border:none;
+  padding:1.25rem 0;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; text-align:left;
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:1rem; color:var(--marrom); transition:opacity 0.2s;
+}
+.serv-acc-btn:hover { opacity:0.7; }
+.serv-acc-n { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; color:var(--marrom); opacity:0.25; margin-right:0.75rem; }
+.serv-acc-fn { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.35; display:flex; align-items:center; gap:0.5rem; flex-shrink:0; margin-left:1rem; }
+.serv-acc-icon { font-size:1rem; color:var(--marrom); opacity:0.4; transition:transform 0.3s; font-style:normal; }
+.serv-acc-item.aberto .serv-acc-icon { transform:rotate(45deg); opacity:1; }
+.serv-acc-resp {
+  max-height:0; overflow:hidden;
+  transition:max-height 0.3s ease, padding 0.3s ease;
+  font-size:0.82rem; line-height:1.75;
+  color:var(--marrom); opacity:0.5; padding-bottom:0;
+}
+.serv-acc-item.aberto .serv-acc-resp { max-height:200px; padding-bottom:1.25rem; }
+
+/* ── PARA QUEM ── */
+.paraquem {
+  background:var(--azul);
+  padding:8rem 6vw;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.paraquem-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:5rem;
+}
+.col-label {
+  font-family:'IBM Plex Mono',monospace; font-size:0.54rem;
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--marrom); margin-bottom:2rem;
+}
+.col-sim .col-label { opacity:0.65; }
+.col-nao .col-label { opacity:0.38; }
+.pq-item {
+  display:flex; align-items:flex-start; gap:0.85rem;
+  padding:1.1rem 0;
+  border-bottom:0.5px solid rgba(74,56,45,0.08);
+  font-size:0.9rem; line-height:1.65; color:var(--marrom);
+}
+.pq-item:last-child { border-bottom:none; }
+.col-sim .pq-item { opacity:0.82; }
+.col-nao .pq-item { opacity:0.35; }
+.pq-icon { flex-shrink:0; margin-top:2px; color:var(--marrom); }
+
+/* ── DEPOIMENTOS ── */
+.depoimentos {
+  padding:8rem 6vw;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.depo-header { margin-bottom:4rem; }
+.depo-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+}
+.depo-card {
+  border:0.5px solid rgba(74,56,45,0.08);
+  padding:1.5rem; background:var(--off);
+}
+.depo-texto {
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:0.88rem;
+  color:var(--marrom); line-height:1.65;
+  margin-bottom:1rem; opacity:0.72;
+}
+.depo-autor {
+  font-family:'IBM Plex Mono',monospace; font-size:0.54rem;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.5;
+}
+.depo-cargo { font-size:0.78rem; color:var(--marrom); opacity:0.35; margin-top:0.2rem; }
+
+/* ── BRUNA ── */
+.bruna {
+  background:var(--marrom);
+  padding:8rem 6vw;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:7rem; align-items:center;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.bruna-img {
+  aspect-ratio:3/4; max-height:580px;
+  background:rgba(250,247,242,0.05);
+  overflow:hidden; position:relative;
+}
+.bruna-img-inner { width:100%; height:100%; display:flex; align-items:flex-end; padding:1.5rem; }
+.bruna-img-label { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--bege); opacity:0.25; }
+.bruna-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:0.54rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--bege); opacity:0.4; margin-bottom:1rem; }
+.bruna-nome { font-family:'Qasbyne','Georgia',serif; font-size:clamp(2.2rem,4vw,3.5rem); color:var(--bege); line-height:1; margin-bottom:0.4rem; }
+.bruna-cargo { font-family:'IBM Plex Mono',monospace; font-size:0.54rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--bege); opacity:0.4; margin-bottom:2.5rem; }
+.bruna-texto { font-size:0.92rem; line-height:1.9; color:var(--bege); opacity:0.65; }
+.bruna-texto p { margin-bottom:1.25rem; }
+.bruna-texto p:last-child { margin-bottom:0; }
+.bruna-stats { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:0.5px solid rgba(228,215,188,0.1); flex-wrap:wrap; }
+.stat-n { font-family:'Qasbyne','Georgia',serif; font-size:2rem; color:var(--azul); line-height:1; margin-bottom:0.3rem; }
+.stat-l { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--bege); opacity:0.35; line-height:1.5; }
+
+/* ── FAQ ── */
+.faq { padding:8rem 6vw; border-bottom:1px solid rgba(74,56,45,0.07); }
+.faq-lista { margin-top:3.5rem; }
+.faq-item { border-bottom:0.5px solid rgba(74,56,45,0.08); }
+.faq-item:first-child { border-top:0.5px solid rgba(74,56,45,0.08); }
+.faq-btn {
+  width:100%; background:none; border:none;
+  padding:1.75rem 0;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; text-align:left;
+  font-family:'Qasbyne','Georgia',serif;
+  font-size:1.05rem; color:var(--marrom); transition:opacity 0.2s;
+}
+.faq-btn:hover { opacity:0.7; }
+.faq-icon { font-size:1.4rem; color:var(--marrom); opacity:0.4; transition:transform 0.3s; flex-shrink:0; margin-left:1.5rem; font-style:normal; }
+.faq-item.aberto .faq-icon { transform:rotate(45deg); opacity:1; }
+.faq-resp {
+  max-height:0; overflow:hidden;
+  transition:max-height 0.35s ease, padding 0.35s ease;
+  font-size:0.88rem; line-height:1.82;
+  color:var(--marrom); opacity:0.55; padding-bottom:0;
+}
+.faq-item.aberto .faq-resp { max-height:300px; padding-bottom:2rem; }
+
+/* ── CTA ── */
+.cta {
+  background:var(--marrom);
+  padding:9rem 6vw;
+  text-align:center;
+}
+.cta-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:0.54rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--azul); opacity:0.5; margin-bottom:1.5rem; }
+.cta-titulo { font-family:'Qasbyne','Georgia',serif; font-size:clamp(2rem,4.5vw,4rem); color:var(--bege); line-height:1.05; max-width:640px; margin:0 auto 1.5rem; }
+.cta-sub { font-size:0.92rem; color:var(--bege); opacity:0.42; max-width:420px; margin:0 auto 3.5rem; line-height:1.8; }
+.btn-light {
+  display:inline-flex; align-items:center; gap:0.75rem;
+  font-family:'IBM Plex Mono',monospace; font-size:0.58rem;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--marrom); background:var(--azul);
+  padding:1.1rem 2.5rem; text-decoration:none; transition:opacity 0.25s;
+}
+.btn-light:hover { opacity:0.85; }
+
+/* ── FOOTER ── */
+footer { background:var(--marrom); padding:4rem 6vw; }
+.footer-top {
+  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem; padding-bottom:3rem;
+  border-bottom:0.5px solid rgba(228,215,188,0.08);
+}
+.footer-marca-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--bege); margin-bottom:0.4rem; }
+.footer-tagline { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--bege); opacity:0.28; }
+.footer-col-titulo { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--bege); opacity:0.35; margin-bottom:1rem; }
+.footer-link { display:block; font-size:0.82rem; color:var(--bege); opacity:0.55; text-decoration:none; margin-bottom:0.4rem; transition:opacity 0.2s; }
+.footer-link:hover { opacity:1; }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:2.5rem; flex-wrap:wrap; gap:1rem; }
+.footer-cnpj { font-family:'IBM Plex Mono',monospace; font-size:0.46rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--bege); opacity:0.22; }
+
+/* ── ECOSSISTEMA (visão dos 3 produtos) ── */
+.eco-lista { display:flex; flex-direction:column; }
+.eco-row {
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  padding:1.75rem 0; border-bottom:0.5px solid rgba(74,56,45,0.08);
+  text-decoration:none; color:var(--marrom);
+  transition:opacity 0.25s ease, transform 0.25s ease;
+}
+.eco-row:first-child { border-top:0.5px solid rgba(74,56,45,0.08); }
+.eco-row:hover { opacity:0.65; transform:translateX(6px); }
+.eco-row-esq { display:flex; align-items:baseline; gap:1rem; }
+.eco-row-n { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; color:var(--marrom); opacity:0.3; }
+.eco-row-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.4rem; color:var(--marrom); }
+.eco-row-conceito { font-family:'IBM Plex Mono',monospace; font-size:0.56rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+
+/* ── PRODUTO (layout compartilhado: DMD / Verve Lab / ECOA) ── */
+.produto {
+  padding:8rem 6vw; display:grid; grid-template-columns:1fr 1fr;
+  gap:6rem; align-items:start;
+  border-bottom:1px solid rgba(74,56,45,0.07);
+}
+.produto.bg-azul { background:var(--azul); }
+.produto-subtitulo {
+  font-family:'IBM Plex Mono',monospace; font-size:0.62rem;
+  letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.45; margin-bottom:1.75rem;
+}
+.produto-texto { font-size:0.95rem; line-height:1.85; color:var(--marrom); opacity:0.62; max-width:460px; margin-bottom:1.25rem; }
+.produto-fechamento {
+  font-family:'Qasbyne','Georgia',serif; font-size:1.05rem;
+  color:var(--marrom); line-height:1.7; margin-top:2rem;
+  padding-left:1.25rem; border-left:2px solid var(--marrom); opacity:0.72;
+}
+.produto-num { font-family:'Qasbyne','Georgia',serif; font-size:clamp(3.5rem,7vw,6rem); color:var(--marrom); opacity:0.08; line-height:1; margin-bottom:1.5rem; }
+.produto-tags { display:flex; flex-wrap:wrap; }
+.produto-tags span { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--marrom); opacity:0.42; }
+.produto-tags span:not(:last-child)::after { content:'·'; margin:0 0.6rem; opacity:0.5; }
+.produto-perguntas { margin-top:2.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+.produto-pergunta { font-family:'Qasbyne','Georgia',serif; font-size:1rem; font-style:italic; color:var(--marrom); opacity:0.6; line-height:1.5; }
+
+/* ── PLANOS (Communiqué / Totale) ── */
+.planos { grid-column:1/-1; margin-top:3rem; padding-top:4rem; border-top:0.5px solid rgba(74,56,45,0.1); }
+.planos-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
+.plano-col + .plano-col { padding-left:4rem; border-left:0.5px solid rgba(74,56,45,0.1); }
+.plano-tag { font-family:'IBM Plex Mono',monospace; font-size:0.54rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--marrom); opacity:0.4; margin-bottom:0.75rem; }
+.plano-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.4rem; color:var(--marrom); margin-bottom:1rem; }
+.plano-texto { font-size:0.88rem; line-height:1.8; color:var(--marrom); opacity:0.58; margin-bottom:1.5rem; }
+.plano-fechamento { font-family:'Qasbyne','Georgia',serif; font-size:0.95rem; font-style:italic; color:var(--marrom); opacity:0.68; line-height:1.6; }
+
+/* ── ECOA · PROCESSO ── */
+.processo { margin-top:2.5rem; display:flex; flex-direction:column; }
+.processo-item { display:grid; grid-template-columns:auto 1fr; gap:2rem; padding:2rem 0; border-bottom:0.5px solid rgba(74,56,45,0.08); }
+.processo-item:first-child { border-top:0.5px solid rgba(74,56,45,0.08); }
+.processo-n { font-family:'Qasbyne','Georgia',serif; font-size:2.5rem; color:var(--marrom); opacity:0.15; line-height:1; }
+.processo-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.2rem; color:var(--marrom); margin-bottom:0.6rem; }
+.processo-texto { font-size:0.85rem; line-height:1.75; color:var(--marrom); opacity:0.55; max-width:520px; }
+
+/* ── COMO SE CONECTAM ── */
+.conecta { background:var(--marrom); padding:8rem 6vw; border-bottom:1px solid rgba(74,56,45,0.07); }
+.conecta-header { margin-bottom:4rem; max-width:600px; }
+.conecta-fluxo { display:flex; flex-direction:column; align-items:center; max-width:520px; margin:0 auto; }
+.conecta-item { text-align:center; padding:1.5rem 0; }
+.conecta-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.8rem; color:var(--bege); margin-bottom:0.4rem; }
+.conecta-conceito { font-family:'IBM Plex Mono',monospace; font-size:0.56rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--azul); opacity:0.65; margin-bottom:0.9rem; }
+.conecta-desc { font-size:0.85rem; line-height:1.7; color:var(--bege); opacity:0.55; max-width:400px; margin:0 auto; }
+.conecta-linha { width:0.5px; height:2.25rem; background:rgba(228,215,188,0.2); }
+.conecta-seta { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--azul); opacity:0.4; padding:0.4rem 0; }
+
+/* ── MOVIMENTO / SCROLL REVEAL ── */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in-view { opacity:1; transform:translateY(0); }
+.reveal-stagger > * { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease, transform 0.6s ease; }
+.reveal-stagger.in-view > * { opacity:1; transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  .reveal, .reveal-stagger > * { opacity:1; transform:none; transition:none; }
+  .eco-row:hover { transform:none; }
+}
+
+/* ── RESPONSIVO ── */
+@media(max-width:900px){
+  .verve,.bruna,.hero-bottom,.paraquem-grid,.depo-grid,.serv-grid,.produto,.planos-grid { grid-template-columns:1fr; gap:2rem; }
+  .footer-top { grid-template-columns:1fr 1fr; gap:2rem; }
+  .hero-actions { align-items:flex-start; }
+  .bruna-img { aspect-ratio:4/3; max-height:320px; }
+  .definicao { grid-template-columns:1fr; gap:2rem; }
+  .serv-card-full { grid-column:1; }
+  .plano-col + .plano-col { padding-left:0; border-left:none; padding-top:2.5rem; border-top:0.5px solid rgba(74,56,45,0.1); }
+  .produto-num { display:none; }
+}
+@media(max-width:600px){
+  .footer-top { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-marca">verve marketing</a>
+  <a href="https://wa.me/5544999259338" class="nav-cta ibm" target="_blank">Falar com a Verve →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="hero-headline qa reveal">A comunicação certa transforma como sua marca é percebida.</h1>
+  <div class="hero-bottom">
+    <div class="reveal">
+      <p class="hero-tagline ibm">Fazemos hoje o que permanece amanhã</p>
+      <p class="hero-sub">Estratégia para construir marcas com direção, presença e performance.</p>
+    </div>
+    <div class="hero-actions reveal">
+      <a href="https://wa.me/5544999259338" class="btn ibm" target="_blank">
+        Falar com a Verve
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEFINIÇÃO VERVE -->
+<section class="definicao">
+  <p class="def-palavra qa reveal">verve</p>
+  <div class="reveal">
+    <p class="def-tipo ibm">substantivo feminino</p>
+    <p class="def-origem ibm">Do francês verve — expressão artística, vigor criativo</p>
+    <p class="def-texto qa">Verve não é uma palavra — é uma expressão. De vivacidade, entusiasmo, inspiração do artista e energia criativa.</p>
+    <p class="def-texto qa" style="margin-top:1.25rem;font-size:clamp(0.9rem,1.4vw,1.1rem);opacity:0.65">A palavra é muito usada para descrever a habilidade de falar, escrever ou se expressar com grande inspiração, eloquência e paixão.</p>
+    <p class="def-ancora ibm">— É isso que trazemos para cada marca que atendemos.</p>
+  </div>
+</section>
+
+<!-- ECOSSISTEMA VERVE -->
+<section class="verve" id="ecossistema">
+  <div class="reveal">
+    <p class="sec-eyebrow ibm">O nosso jeito de construir marcas</p>
+    <h2 class="sec-titulo qa">Marca. Presença. Performance.</h2>
+    <p class="verve-frase">A Verve organiza sua atuação em três produtos principais, cada um com uma função específica dentro da construção, presença e performance de uma marca no digital. Não partimos do princípio de que uma marca precisa simplesmente postar mais ou anunciar mais — antes disso, é preciso entender quem essa marca é, como ela precisa se comunicar e o que ela quer colocar no mercado.</p>
+    <div class="verve-destaque qa">
+      É direção. É presença. É performance.
+    </div>
+  </div>
+
+  <div>
+    <p class="serv-eyebrow ibm">Os três produtos</p>
+    <div class="eco-lista reveal-stagger">
+      <a href="#dmd" class="eco-row">
+        <span class="eco-row-esq"><span class="eco-row-n ibm">01</span><span class="eco-row-nome qa">DMD</span></span>
+        <span class="eco-row-conceito ibm">Direção</span>
+      </a>
+      <a href="#lab" class="eco-row">
+        <span class="eco-row-esq"><span class="eco-row-n ibm">02</span><span class="eco-row-nome qa">Verve Lab</span></span>
+        <span class="eco-row-conceito ibm">Presença</span>
+      </a>
+      <a href="#ecoa" class="eco-row">
+        <span class="eco-row-esq"><span class="eco-row-n ibm">03</span><span class="eco-row-nome qa">ECOA</span></span>
+        <span class="eco-row-conceito ibm">Performance</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DMD -->
+<section class="produto bg-azul" id="dmd">
+  <div class="reveal">
+    <p class="sec-eyebrow ibm">Direção</p>
+    <h2 class="sec-titulo qa">DMD</h2>
+    <p class="produto-subtitulo ibm">Dossiê de Marca Digital</p>
+    <p class="produto-texto">O DMD é a base estratégica da marca no digital. É onde a Verve organiza como aquela marca deve se posicionar, se comunicar e construir percepção antes de simplesmente começar a produzir conteúdo.</p>
+    <p class="produto-texto">O DMD olha para a marca de forma macro.</p>
+    <div class="produto-tags ibm reveal-stagger">
+      <span>Posicionamento</span><span>Público</span><span>Percepção desejada</span><span>Diferenciais</span><span>Tom de voz e linguagem</span><span>Narrativa</span><span>Pilares de comunicação</span><span>Direcionamento de conteúdo</span><span>Presença digital</span><span>Oportunidades estratégicas</span>
+    </div>
+    <div class="produto-fechamento qa">O papel do DMD é dar direção para a marca.</div>
+  </div>
+  <div class="reveal">
+    <p class="produto-num">01</p>
+    <div class="produto-perguntas reveal-stagger">
+      <p class="produto-pergunta">Quem é essa marca no digital?</p>
+      <p class="produto-pergunta">Como ela deve se comunicar?</p>
+      <p class="produto-pergunta">Como ela quer ser percebida?</p>
+      <p class="produto-pergunta">Quais assuntos e territórios precisa ocupar?</p>
+    </div>
+  </div>
+</section>
+
+<!-- VERVE LAB -->
+<section class="produto" id="lab">
+  <div class="reveal">
+    <p class="produto-num">02</p>
+    <div class="produto-perguntas reveal-stagger">
+      <p class="produto-pergunta">O que essa marca precisa comunicar agora?</p>
+      <p class="produto-pergunta">Como transformar a estratégia em conteúdo?</p>
+      <p class="produto-pergunta">Que conteúdos precisam ser produzidos neste mês?</p>
+      <p class="produto-pergunta">Como manter uma presença consistente e relevante?</p>
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="sec-eyebrow ibm">Presença</p>
+    <h2 class="sec-titulo qa">Verve Lab</h2>
+    <p class="produto-texto">A Verve Lab é a operação recorrente de conteúdo da Verve. Depois que existe uma direção estratégica, é aqui que essa estratégia ganha vida todos os meses.</p>
+    <p class="produto-texto">A Verve Lab não é apenas social media ou produção de posts. Ela reúne estratégia, planejamento, criação, produção e gestão da comunicação recorrente da marca.</p>
+    <div class="produto-tags ibm reveal-stagger">
+      <span>Planejamento estratégico mensal</span><span>Definição de pautas</span><span>Roteiros e copywriting</span><span>Captação de conteúdo</span><span>Edição de vídeos</span><span>Criação de peças e carrosséis</span><span>Calendário editorial</span><span>Gestão de social media</span><span>Publicação e programação</span>
+    </div>
+    <div class="produto-fechamento qa">O papel da Verve Lab é manter a marca em movimento. Se o DMD define a direção, a Verve Lab transforma essa direção em uma comunicação viva, contínua e consistente.</div>
+
+    <div class="planos">
+      <p class="serv-eyebrow ibm">Formatos de operação</p>
+      <div class="planos-grid reveal-stagger">
+        <div class="plano-col">
+          <p class="plano-tag ibm">Produção</p>
+          <p class="plano-nome qa">Communiqué</p>
+          <p class="plano-texto">Voltado para marcas que precisam de estratégia e produção profissional de conteúdo, mas possuem estrutura interna para manter a operação das redes. A Verve pensa, planeja e produz. O cliente recebe os materiais organizados e assume a publicação e a rotina cotidiana da rede.</p>
+          <p class="plano-fechamento">A Verve produz a comunicação. A marca mantém a operação da rede.</p>
+        </div>
+        <div class="plano-col">
+          <p class="plano-tag ibm">Operação completa</p>
+          <p class="plano-nome qa">Totale</p>
+          <p class="plano-texto">Representa uma operação mais completa da Verve Lab. Além da estratégia e produção de conteúdo, a Verve assume uma parcela maior da presença digital da marca, incluindo organização, publicação, gestão e distribuição.</p>
+          <p class="plano-fechamento">A Verve planeja, produz, publica e distribui.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOA -->
+<section class="produto bg-azul" id="ecoa">
+  <div class="reveal">
+    <p class="sec-eyebrow ibm">Performance</p>
+    <h2 class="sec-titulo qa">ECOA</h2>
+    <p class="produto-texto">O ECOA é o produto da Verve voltado para ofertas, comunicação publicitária e mídia paga. Aqui, o olhar deixa de ser a comunicação macro da marca e passa para uma necessidade específica: o que queremos vender e como vamos colocar essa oferta no mercado?</p>
+    <div class="produto-fechamento qa">O papel do ECOA é fazer uma oferta ganhar direção, mensagem e alcance.</div>
+    <div class="produto-perguntas reveal-stagger" style="margin-top:2.5rem">
+      <p class="produto-pergunta">O que vamos vender?</p>
+      <p class="produto-pergunta">Como vamos apresentar essa oferta?</p>
+      <p class="produto-pergunta">Que mensagem precisa virar criativo?</p>
+      <p class="produto-pergunta">Como essa mensagem será distribuída através da mídia paga?</p>
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="serv-eyebrow ibm">Oferta → Comunicação → Anúncio</p>
+    <div class="processo reveal-stagger">
+      <div class="processo-item">
+        <p class="processo-n ibm">01</p>
+        <div>
+          <p class="processo-nome qa">Oferta</p>
+          <p class="processo-texto">Primeiro é preciso entender e organizar aquilo que será anunciado.</p>
+          <div class="produto-tags ibm" style="margin-top:0.75rem"><span>Produto ou serviço prioritário</span><span>Público</span><span>Problema e benefícios</span><span>Diferenciais</span><span>Condições comerciais</span><span>Objeções e argumentos</span><span>Oportunidade de mercado</span></div>
+        </div>
+      </div>
+      <div class="processo-item">
+        <p class="processo-n ibm">02</p>
+        <div>
+          <p class="processo-nome qa">Comunicação</p>
+          <p class="processo-texto">Depois, a oferta precisa virar mensagem. O DMD define como a marca se comunica; o ECOA define como uma oferta específica dessa marca precisa ser comunicada para gerar ação.</p>
+          <div class="produto-tags ibm" style="margin-top:0.75rem"><span>Conceito de campanha</span><span>Mensagens principais</span><span>Ganchos e copies</span><span>Roteiros e peças</span><span>Criativos para mídia</span></div>
+        </div>
+      </div>
+      <div class="processo-item">
+        <p class="processo-n ibm">03</p>
+        <div>
+          <p class="processo-nome qa">Anúncio</p>
+          <p class="processo-texto">Só depois de organizar oferta e mensagem a Verve entra efetivamente na mídia.</p>
+          <div class="produto-tags ibm" style="margin-top:0.75rem"><span>Estratégia de campanha</span><span>Canais e públicos</span><span>Estrutura de anúncios</span><span>Testes e otimizações</span><span>Acompanhamento de performance</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO OS TRÊS PRODUTOS SE CONECTAM -->
+<section class="conecta" id="conecta">
+  <div class="conecta-header reveal">
+    <p class="sec-eyebrow ibm" style="color:var(--bege);opacity:0.4">Um só ecossistema</p>
+    <h2 class="sec-titulo qa" style="color:var(--bege)">Como os três produtos se conectam</h2>
+    <p class="produto-texto" style="color:var(--bege);opacity:0.55;max-width:560px">Os produtos fazem parte do mesmo ecossistema, mas resolvem problemas diferentes.</p>
+  </div>
+  <div class="conecta-fluxo reveal-stagger">
+    <div class="conecta-item">
+      <p class="conecta-conceito ibm">Direção</p>
+      <p class="conecta-nome qa">DMD</p>
+      <p class="conecta-desc">Define quem somos, como falamos e como queremos ser percebidos.</p>
+    </div>
+    <div class="conecta-linha"></div>
+    <p class="conecta-seta ibm">↓</p>
+    <div class="conecta-linha"></div>
+    <div class="conecta-item">
+      <p class="conecta-conceito ibm">Presença</p>
+      <p class="conecta-nome qa">Verve Lab</p>
+      <p class="conecta-desc">Transforma essa direção em conteúdo, constância e presença digital.</p>
+    </div>
+    <div class="conecta-linha"></div>
+    <p class="conecta-seta ibm">↓</p>
+    <div class="conecta-linha"></div>
+    <div class="conecta-item">
+      <p class="conecta-conceito ibm">Performance</p>
+      <p class="conecta-nome qa">ECOA</p>
+      <p class="conecta-desc">Transforma uma oferta em mensagem, anúncio e mídia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM -->
+<section class="paraquem" id="paraquem">
+  <div class="paraquem-grid">
+    <div class="col-sim reveal-stagger">
+      <p class="col-label ibm">Para quem é</p>
+      <div class="pq-item"><span class="pq-icon">→</span>Empresas que entendem comunicação como parte do negócio</div>
+      <div class="pq-item"><span class="pq-icon">→</span>Marcas que querem construir percepção, e não apenas publicar</div>
+      <div class="pq-item"><span class="pq-icon">→</span>Negócios que buscam estratégia antes da execução</div>
+      <div class="pq-item"><span class="pq-icon">→</span>Empresas que querem consistência de marca</div>
+      <div class="pq-item"><span class="pq-icon">→</span>Marcas com objetivos claros de crescimento</div>
+      <div class="pq-item"><span class="pq-icon">→</span>Quem valoriza processo, direção e acompanhamento</div>
+      <div class="pq-item"><span class="pq-icon">→</span>Quem entende que marca, conteúdo e mídia precisam conversar</div>
+    </div>
+    <div class="col-nao reveal-stagger">
+      <p class="col-label ibm">Para quem não é</p>
+      <div class="pq-item"><span class="pq-icon">×</span>Quem busca apenas volume de posts</div>
+      <div class="pq-item"><span class="pq-icon">×</span>Quem quer soluções rápidas sem construção estratégica</div>
+      <div class="pq-item"><span class="pq-icon">×</span>Quem procura apenas alguém para "movimentar o Instagram"</div>
+      <div class="pq-item"><span class="pq-icon">×</span>Quem entende anúncio como substituto de uma boa oferta</div>
+      <div class="pq-item"><span class="pq-icon">×</span>Quem quer comunicação sem participação ou alinhamento interno</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRUNA -->
+<section class="bruna" id="sobre">
+  <div class="bruna-img reveal">
+    <!-- Substitua por: <img src="foto-bruna.jpg" style="width:100%;height:100%;object-fit:cover;display:block"> -->
+    <div class="bruna-img-inner">
+      <p class="bruna-img-label ibm">← foto da Bruna aqui</p>
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="bruna-eyebrow ibm">Quem está por trás da Verve</p>
+    <h2 class="bruna-nome qa">Bruna Pires</h2>
+    <p class="bruna-cargo ibm">Diretora criativa e estrategista</p>
+    <div class="bruna-texto">
+      <p>Há oito anos empreendo e produzo conteúdo. Não como profissão escolhida de primeira — mas como algo que foi se tornando inevitável. Comunicação sempre foi uma habilidade natural, que fui lapidando até transformar em negócio.</p>
+      <p>A Verve tem quase dois anos e já atendeu mais de 50 marcas e empresas. Não porque seguimos fórmula, mas porque antes de criar, a gente entende. Antes de falar, a gente percebe.</p>
+      <p>Sou criativa por natureza, estrategista por escolha. Tenho um olhar sensível à estética e à narrativa — e atento ao negócio. Ideias que fogem do óbvio, organização que gera clareza, entrega que une forma e resultado.</p>
+      <p>É essa combinação — estratégia, direção criativa, percepção, comunicação e execução — que hoje organiza o ecossistema da Verve em cada marca que atendo.</p>
+    </div>
+    <div class="bruna-stats">
+      <div><p class="stat-n qa">8</p><p class="stat-l ibm">anos empreendendo</p></div>
+      <div><p class="stat-n qa">50+</p><p class="stat-l ibm">marcas atendidas</p></div>
+      <div><p class="stat-n qa">2</p><p class="stat-l ibm">anos da Verve</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <p class="sec-eyebrow ibm">Dúvidas frequentes</p>
+  <h2 class="sec-titulo qa">Perguntas frequentes</h2>
+  <div class="faq-lista reveal-stagger">
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">A Verve é uma agência de marketing?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">Não de forma tradicional. A Verve organiza marca, presença e performance através de um ecossistema de produtos — DMD, Verve Lab e ECOA — em vez de oferecer uma lista solta de serviços.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">Preciso começar pelo DMD?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">Na maioria dos casos, sim. O DMD organiza a direção estratégica da marca, e é essa direção que orienta o trabalho da Verve Lab e do ECOA. Avaliamos cada caso conforme o momento da marca.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">Qual é a diferença entre DMD, Verve Lab e ECOA?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">O DMD define a direção da marca. A Verve Lab transforma essa direção em conteúdo e presença recorrente. O ECOA organiza uma oferta específica em mensagem, criativo e mídia paga.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">Qual é a diferença entre Communiqué e Totale?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">No Communiqué, a Verve pensa e produz a comunicação, e a marca assume a publicação e a rotina da rede. No Totale, a Verve planeja, produz, publica e distribui — uma operação mais completa da presença digital.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">A Verve também trabalha com mídia paga?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">Sim, através do ECOA. Organizamos a oferta, a comunicação publicitária e a distribuição em mídia paga, sempre a partir de uma mensagem bem definida.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">Vocês atendem empresas de qualquer segmento?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">Atendemos empresas de diferentes segmentos que entendem comunicação como parte do negócio e buscam estratégia antes da execução. Avaliamos cada marca individualmente.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn qa" onclick="toggleFaq(this)">Como funciona o início de um projeto?<em class="faq-icon">+</em></button>
+      <div class="faq-resp">O DMD é um projeto único, com duração de 60 dias. Já a Verve Lab e o ECOA funcionam em ciclos de 4 meses, sendo o primeiro mês dedicado à estruturação — entender objetivos, desejos e prioridades da marca, organizar isso em pauta e definir o que de fato conseguimos executar. A partir daí, a operação segue em ritmo contínuo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <p class="cta-eyebrow ibm reveal">Pronta para começar?</p>
+  <h2 class="cta-titulo qa reveal">Sua marca percebida do tamanho que ela realmente é.</h2>
+  <p class="cta-sub reveal">Vamos entender onde sua marca está hoje e o que precisa ser construído a partir daqui.</p>
+  <a href="https://wa.me/5544999259338" class="btn-light ibm reveal" target="_blank">
+    Falar com a Verve no WhatsApp
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <p class="footer-marca-nome qa">verve marketing</p>
+      <p class="footer-tagline ibm">Arte, negócios, resultados</p>
+    </div>
+    <div>
+      <p class="footer-col-titulo ibm">Contato</p>
+      <a href="mailto:contato.grupoverve@gmail.com" class="footer-link">contato.grupoverve@gmail.com</a>
+      <a href="https://wa.me/5544999259338" class="footer-link" target="_blank">(44) 99925-9338</a>
+    </div>
+    <div>
+      <p class="footer-col-titulo ibm">Redes sociais</p>
+      <a href="https://instagram.com/vervemarketing__" class="footer-link" target="_blank">@vervemarketing__</a>
+    </div>
+    <div>
+      <p class="footer-col-titulo ibm">Localização</p>
+      <p class="footer-link" style="cursor:default">Cianorte · PR</p>
+      <p class="footer-link" style="cursor:default">Atendimento nacional</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-cnpj ibm">CNPJ 59.082.553/0001-02 · Verve Marketing · © 2026</p>
+    <p class="footer-tagline ibm">Fazemos hoje o que permanece amanhã</p>
+  </div>
+</footer>
+
+<script>
+function toggleServ(btn) {
+  const item = btn.parentElement;
+  const aberto = item.classList.contains('aberto');
+  document.querySelectorAll('.serv-acc-item').forEach(i => i.classList.remove('aberto'));
+  if (!aberto) item.classList.add('aberto');
+}
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const aberto = item.classList.contains('aberto');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('aberto'));
+  if (!aberto) item.classList.add('aberto');
+}
+
+/* Scroll reveal — respeita prefers-reduced-motion */
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  document.querySelectorAll('.reveal-stagger').forEach(group => {
+    Array.from(group.children).forEach((child, i) => {
+      child.style.transitionDelay = (i * 70) + 'ms';
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('in-view'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
