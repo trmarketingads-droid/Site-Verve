@@ -17,17 +17,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-marca">verve marketing</a>
+  <a href="index.html" class="nav-marca">verve marketing</a>
+  <div class="nav-links ibm">
+    <a href="ecossistema.html" class="nav-link">Ecossistema</a>
+    <a href="projetos.html" class="nav-link">Projetos</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+  </div>
   <a href="https://wa.me/5544999259338" class="nav-cta ibm" target="_blank">Falar com a Verve →</a>
+  <button class="nav-toggle" aria-label="Abrir menu" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html" class="nav-mobile-link qa" style="opacity:1">Verve</a>
+  <a href="ecossistema.html" class="nav-mobile-link qa">Ecossistema</a>
+  <a href="projetos.html" class="nav-mobile-link qa">Projetos</a>
+  <a href="sobre.html" class="nav-mobile-link qa">Sobre</a>
+  <a href="https://wa.me/5544999259338" class="btn ibm" target="_blank">Falar com a Verve</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <h1 class="hero-headline qa reveal">A comunicação certa transforma como sua marca é percebida.</h1>
+  <h1 class="hero-headline qa split-reveal">A comunicação certa transforma como sua marca é percebida.</h1>
   <div class="hero-bottom">
     <div class="reveal">
       <p class="hero-tagline ibm">Fazemos hoje o que permanece amanhã</p>
-      <p class="hero-sub">Estratégia para construir marcas com direção, presença e performance.</p>
+      <p class="hero-sub">Estratégia, criação e performance para marcas que querem construir presença com direção.</p>
     </div>
     <div class="hero-actions reveal">
       <a href="https://wa.me/5544999259338" class="btn ibm" target="_blank">
@@ -38,215 +51,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- DEFINIÇÃO VERVE -->
-<section class="definicao">
-  <p class="def-palavra qa reveal">verve</p>
-  <div class="reveal">
-    <p class="def-tipo ibm">substantivo feminino</p>
-    <p class="def-origem ibm">Do francês verve — expressão artística, vigor criativo</p>
-    <p class="def-texto qa">Verve não é uma palavra — é uma expressão. De vivacidade, entusiasmo, inspiração do artista e energia criativa.</p>
-    <p class="def-texto qa" style="margin-top:1.25rem;font-size:clamp(0.9rem,1.4vw,1.1rem);opacity:0.65">A palavra é muito usada para descrever a habilidade de falar, escrever ou se expressar com grande inspiração, eloquência e paixão.</p>
-    <p class="def-ancora ibm">— É isso que trazemos para cada marca que atendemos.</p>
+<!-- MANIFESTO -->
+<section class="manifesto-scroll" id="manifestoScroll">
+  <div class="manifesto-sticky">
+    <p class="manifesto-verve qa">verve</p>
+    <div class="manifesto-fases">
+      <p class="manifesto-fase ativa">não é uma palavra —<br>é uma expressão.</p>
+      <p class="manifesto-fase">de vivacidade e movimento.</p>
+      <p class="manifesto-fase">de intenção e percepção.</p>
+      <p class="manifesto-fase">é isso que trazemos para cada marca que atendemos.</p>
+    </div>
   </div>
 </section>
 
-<!-- ECOSSISTEMA VERVE -->
+<!-- ECOSSISTEMA (resumido, interativo) -->
 <section class="verve" id="ecossistema">
   <div class="reveal">
     <p class="sec-eyebrow ibm">O nosso jeito de construir marcas</p>
-    <h2 class="sec-titulo qa">Marca. Presença. Performance.</h2>
-    <p class="verve-frase">A Verve organiza sua atuação em três produtos principais, cada um com uma função específica dentro da construção, presença e performance de uma marca no digital. Não partimos do princípio de que uma marca precisa simplesmente postar mais ou anunciar mais — antes disso, é preciso entender quem essa marca é, como ela precisa se comunicar e o que ela quer colocar no mercado.</p>
-    <div class="verve-destaque qa">
-      É direção. É presença. É performance.
-    </div>
+    <h2 class="sec-titulo qa split-reveal">Marca. Presença. Performance.</h2>
+    <p class="verve-frase">A Verve organiza sua atuação em três frentes complementares.</p>
+    <a href="ecossistema.html" class="link-mais ibm">Conhecer o ecossistema →</a>
   </div>
 
-  <div>
-    <p class="serv-eyebrow ibm">Os três produtos</p>
-    <div class="eco-lista reveal-stagger">
-      <a href="#dmd" class="eco-row">
-        <span class="eco-row-esq"><span class="eco-row-n ibm">01</span><span class="eco-row-nome qa">DMD</span></span>
-        <span class="eco-row-conceito ibm">Direção</span>
+  <div class="eco-grande reveal-stagger">
+    <a href="ecossistema.html#dmd" class="eco-grande-item">
+      <span class="eco-grande-top">
+        <span class="eco-grande-n ibm">01</span>
+        <span class="eco-grande-nome qa">DMD</span>
+        <span class="eco-grande-conceito ibm">Direção</span>
+      </span>
+      <p class="eco-grande-desc">Define a direção da marca.</p>
+    </a>
+    <a href="ecossistema.html#lab" class="eco-grande-item">
+      <span class="eco-grande-top">
+        <span class="eco-grande-n ibm">02</span>
+        <span class="eco-grande-nome qa">Verve Lab</span>
+        <span class="eco-grande-conceito ibm">Presença</span>
+      </span>
+      <p class="eco-grande-desc">Mantém a comunicação em movimento.</p>
+    </a>
+    <a href="ecossistema.html#ecoa" class="eco-grande-item">
+      <span class="eco-grande-top">
+        <span class="eco-grande-n ibm">03</span>
+        <span class="eco-grande-nome qa">ECOA</span>
+        <span class="eco-grande-conceito ibm">Performance</span>
+      </span>
+      <p class="eco-grande-desc">Transforma oferta em comunicação e performance.</p>
+    </a>
+  </div>
+</section>
+
+<!-- PROJETOS SELECIONADOS -->
+<section class="projetos-hscroll" id="projetosHscroll">
+  <div class="projetos-hsticky">
+    <div class="projetos-hlabel reveal">
+      <p class="sec-eyebrow ibm">Repertório</p>
+      <h2 class="sec-titulo qa split-reveal">Alguns trabalhos que ganharam vida por aqui.</h2>
+      <a href="projetos.html" class="link-mais ibm">Ver todos os projetos →</a>
+    </div>
+    <div class="projetos-htrack" id="projetosHtrack">
+      <a href="projetos.html#ivai" class="projetos-hpanel" style="background:var(--azul)">
+        <span class="projetos-hnum ibm">01</span>
+        <span class="projetos-hnome qa">Ivaí Residence</span>
+        <span class="projetos-hlinha ibm">DMD · Direção</span>
       </a>
-      <a href="#lab" class="eco-row">
-        <span class="eco-row-esq"><span class="eco-row-n ibm">02</span><span class="eco-row-nome qa">Verve Lab</span></span>
-        <span class="eco-row-conceito ibm">Presença</span>
+      <a href="projetos.html#mimosa" class="projetos-hpanel" style="background:var(--bege)">
+        <span class="projetos-hnum ibm">02</span>
+        <span class="projetos-hnome qa">Mimosa</span>
+        <span class="projetos-hlinha ibm">Verve Lab · Presença</span>
       </a>
-      <a href="#ecoa" class="eco-row">
-        <span class="eco-row-esq"><span class="eco-row-n ibm">03</span><span class="eco-row-nome qa">ECOA</span></span>
-        <span class="eco-row-conceito ibm">Performance</span>
+      <a href="projetos.html#milani" class="projetos-hpanel" style="background:var(--azul)">
+        <span class="projetos-hnum ibm">03</span>
+        <span class="projetos-hnome qa">Milani &amp; Moro</span>
+        <span class="projetos-hlinha ibm">ECOA · Performance</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- DMD -->
-<section class="produto bg-azul" id="dmd">
-  <div class="reveal">
-    <p class="sec-eyebrow ibm">Direção</p>
-    <h2 class="sec-titulo qa">DMD</h2>
-    <p class="produto-subtitulo ibm">Dossiê de Marca Digital</p>
-    <p class="produto-texto">O DMD é a base estratégica da marca no digital. É onde a Verve organiza como aquela marca deve se posicionar, se comunicar e construir percepção antes de simplesmente começar a produzir conteúdo.</p>
-    <p class="produto-texto">O DMD olha para a marca de forma macro.</p>
-    <div class="produto-tags ibm reveal-stagger">
-      <span>Posicionamento</span><span>Público</span><span>Percepção desejada</span><span>Diferenciais</span><span>Tom de voz e linguagem</span><span>Narrativa</span><span>Pilares de comunicação</span><span>Direcionamento de conteúdo</span><span>Presença digital</span><span>Oportunidades estratégicas</span>
-    </div>
-    <div class="produto-fechamento qa">O papel do DMD é dar direção para a marca.</div>
-  </div>
-  <div class="reveal">
-    <p class="produto-num">01</p>
-    <div class="produto-perguntas reveal-stagger">
-      <p class="produto-pergunta">Quem é essa marca no digital?</p>
-      <p class="produto-pergunta">Como ela deve se comunicar?</p>
-      <p class="produto-pergunta">Como ela quer ser percebida?</p>
-      <p class="produto-pergunta">Quais assuntos e territórios precisa ocupar?</p>
-    </div>
-  </div>
+<!-- QUEBRA DE RITMO -->
+<section class="quebra">
+  <p class="quebra-linha forte qa split-reveal">Não fazemos comunicação para preencher espaço.</p>
+  <p class="quebra-linha fraca qa reveal" style="transition-delay:0.35s">Fazemos para ocupar espaço.</p>
 </section>
 
-<!-- VERVE LAB -->
-<section class="produto" id="lab">
-  <div class="reveal">
-    <p class="produto-num">02</p>
-    <div class="produto-perguntas reveal-stagger">
-      <p class="produto-pergunta">O que essa marca precisa comunicar agora?</p>
-      <p class="produto-pergunta">Como transformar a estratégia em conteúdo?</p>
-      <p class="produto-pergunta">Que conteúdos precisam ser produzidos neste mês?</p>
-      <p class="produto-pergunta">Como manter uma presença consistente e relevante?</p>
-    </div>
+<!-- PARA QUEM É -->
+<section class="paraquem-editorial">
+  <p class="paraquem-principal qa split-reveal">Trabalhamos melhor com marcas que querem construir, não apenas aparecer.</p>
+  <div class="paraquem-pensamentos reveal-stagger">
+    <p class="paraquem-pensamento">Estratégia antes da execução.</p>
+    <p class="paraquem-pensamento">Percepção antes de volume.</p>
+    <p class="paraquem-pensamento">Consistência antes de pressa.</p>
   </div>
-  <div class="reveal">
-    <p class="sec-eyebrow ibm">Presença</p>
-    <h2 class="sec-titulo qa">Verve Lab</h2>
-    <p class="produto-texto">A Verve Lab é a operação recorrente de conteúdo da Verve. Depois que existe uma direção estratégica, é aqui que essa estratégia ganha vida todos os meses.</p>
-    <p class="produto-texto">A Verve Lab não é apenas social media ou produção de posts. Ela reúne estratégia, planejamento, criação, produção e gestão da comunicação recorrente da marca.</p>
-    <div class="produto-tags ibm reveal-stagger">
-      <span>Planejamento estratégico mensal</span><span>Definição de pautas</span><span>Roteiros e copywriting</span><span>Captação de conteúdo</span><span>Edição de vídeos</span><span>Criação de peças e carrosséis</span><span>Calendário editorial</span><span>Gestão de social media</span><span>Publicação e programação</span>
-    </div>
-    <div class="produto-fechamento qa">O papel da Verve Lab é manter a marca em movimento. Se o DMD define a direção, a Verve Lab transforma essa direção em uma comunicação viva, contínua e consistente.</div>
-  </div>
-
-  <div class="planos reveal">
-    <p class="serv-eyebrow ibm">Formatos de operação</p>
-    <div class="planos-grid reveal-stagger">
-      <div class="plano-col">
-        <p class="plano-tag ibm">Produção</p>
-        <p class="plano-nome qa">Communiqué</p>
-        <p class="plano-texto">Voltado para marcas que precisam de estratégia e produção profissional de conteúdo, mas possuem estrutura interna para manter a operação das redes. A Verve pensa, planeja e produz. O cliente recebe os materiais organizados e assume a publicação e a rotina cotidiana da rede.</p>
-        <p class="plano-fechamento">A Verve produz a comunicação. A marca mantém a operação da rede.</p>
-      </div>
-      <div class="plano-col">
-        <p class="plano-tag ibm">Operação completa</p>
-        <p class="plano-nome qa">Totale</p>
-        <p class="plano-texto">Representa uma operação mais completa da Verve Lab. Além da estratégia e produção de conteúdo, a Verve assume uma parcela maior da presença digital da marca, incluindo organização, publicação, gestão e distribuição.</p>
-        <p class="plano-fechamento">A Verve planeja, produz, publica e distribui.</p>
-      </div>
-    </div>
-  </div>
+  <p class="paraquem-ressalva reveal">Se você procura apenas alguém para movimentar o Instagram, provavelmente não somos a escolha certa.</p>
 </section>
 
-<!-- ECOA -->
-<section class="produto bg-azul" id="ecoa">
-  <div class="reveal">
-    <p class="sec-eyebrow ibm">Performance</p>
-    <h2 class="sec-titulo qa">ECOA</h2>
-    <p class="produto-texto">O ECOA é o produto da Verve voltado para ofertas, comunicação publicitária e mídia paga. Aqui, o olhar deixa de ser a comunicação macro da marca e passa para uma necessidade específica: o que queremos vender e como vamos colocar essa oferta no mercado?</p>
-    <div class="produto-fechamento qa">O papel do ECOA é fazer uma oferta ganhar direção, mensagem e alcance.</div>
-    <div class="produto-perguntas reveal-stagger" style="margin-top:2.5rem">
-      <p class="produto-pergunta">O que vamos vender?</p>
-      <p class="produto-pergunta">Como vamos apresentar essa oferta?</p>
-      <p class="produto-pergunta">Que mensagem precisa virar criativo?</p>
-      <p class="produto-pergunta">Como essa mensagem será distribuída através da mídia paga?</p>
-    </div>
-  </div>
-  <div class="reveal">
-    <p class="serv-eyebrow ibm">Oferta → Comunicação → Anúncio</p>
-    <div class="processo reveal-stagger">
-      <div class="processo-item">
-        <p class="processo-n ibm">01</p>
-        <div>
-          <p class="processo-nome qa">Oferta</p>
-          <p class="processo-texto">Primeiro é preciso entender e organizar aquilo que será anunciado.</p>
-          <div class="produto-tags ibm" style="margin-top:0.75rem"><span>Produto ou serviço prioritário</span><span>Público</span><span>Problema e benefícios</span><span>Diferenciais</span><span>Condições comerciais</span><span>Objeções e argumentos</span><span>Oportunidade de mercado</span></div>
-        </div>
-      </div>
-      <div class="processo-item">
-        <p class="processo-n ibm">02</p>
-        <div>
-          <p class="processo-nome qa">Comunicação</p>
-          <p class="processo-texto">Depois, a oferta precisa virar mensagem. O DMD define como a marca se comunica; o ECOA define como uma oferta específica dessa marca precisa ser comunicada para gerar ação.</p>
-          <div class="produto-tags ibm" style="margin-top:0.75rem"><span>Conceito de campanha</span><span>Mensagens principais</span><span>Ganchos e copies</span><span>Roteiros e peças</span><span>Criativos para mídia</span></div>
-        </div>
-      </div>
-      <div class="processo-item">
-        <p class="processo-n ibm">03</p>
-        <div>
-          <p class="processo-nome qa">Anúncio</p>
-          <p class="processo-texto">Só depois de organizar oferta e mensagem a Verve entra efetivamente na mídia.</p>
-          <div class="produto-tags ibm" style="margin-top:0.75rem"><span>Estratégia de campanha</span><span>Canais e públicos</span><span>Estrutura de anúncios</span><span>Testes e otimizações</span><span>Acompanhamento de performance</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO OS TRÊS PRODUTOS SE CONECTAM -->
-<section class="conecta" id="conecta">
-  <div class="conecta-header reveal">
-    <p class="sec-eyebrow ibm" style="color:var(--bege);opacity:0.4">Um só ecossistema</p>
-    <h2 class="sec-titulo qa" style="color:var(--bege)">Como os três produtos se conectam</h2>
-    <p class="produto-texto" style="color:var(--bege);opacity:0.55;max-width:560px">Os produtos fazem parte do mesmo ecossistema, mas resolvem problemas diferentes.</p>
-  </div>
-  <div class="conecta-fluxo reveal-stagger">
-    <div class="conecta-item">
-      <p class="conecta-conceito ibm">Direção</p>
-      <p class="conecta-nome qa">DMD</p>
-      <p class="conecta-desc">Define quem somos, como falamos e como queremos ser percebidos.</p>
-    </div>
-    <div class="conecta-linha"></div>
-    <p class="conecta-seta ibm">↓</p>
-    <div class="conecta-linha"></div>
-    <div class="conecta-item">
-      <p class="conecta-conceito ibm">Presença</p>
-      <p class="conecta-nome qa">Verve Lab</p>
-      <p class="conecta-desc">Transforma essa direção em conteúdo, constância e presença digital.</p>
-    </div>
-    <div class="conecta-linha"></div>
-    <p class="conecta-seta ibm">↓</p>
-    <div class="conecta-linha"></div>
-    <div class="conecta-item">
-      <p class="conecta-conceito ibm">Performance</p>
-      <p class="conecta-nome qa">ECOA</p>
-      <p class="conecta-desc">Transforma uma oferta em mensagem, anúncio e mídia.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PARA QUEM -->
-<section class="paraquem" id="paraquem">
-  <div class="paraquem-grid">
-    <div class="col-sim reveal-stagger">
-      <p class="col-label ibm">Para quem é</p>
-      <div class="pq-item"><span class="pq-icon">→</span>Empresas que entendem comunicação como parte do negócio</div>
-      <div class="pq-item"><span class="pq-icon">→</span>Marcas que querem construir percepção, e não apenas publicar</div>
-      <div class="pq-item"><span class="pq-icon">→</span>Negócios que buscam estratégia antes da execução</div>
-      <div class="pq-item"><span class="pq-icon">→</span>Empresas que querem consistência de marca</div>
-      <div class="pq-item"><span class="pq-icon">→</span>Marcas com objetivos claros de crescimento</div>
-      <div class="pq-item"><span class="pq-icon">→</span>Quem valoriza processo, direção e acompanhamento</div>
-      <div class="pq-item"><span class="pq-icon">→</span>Quem entende que marca, conteúdo e mídia precisam conversar</div>
-    </div>
-    <div class="col-nao reveal-stagger">
-      <p class="col-label ibm">Para quem não é</p>
-      <div class="pq-item"><span class="pq-icon">×</span>Quem busca apenas volume de posts</div>
-      <div class="pq-item"><span class="pq-icon">×</span>Quem quer soluções rápidas sem construção estratégica</div>
-      <div class="pq-item"><span class="pq-icon">×</span>Quem procura apenas alguém para "movimentar o Instagram"</div>
-      <div class="pq-item"><span class="pq-icon">×</span>Quem entende anúncio como substituto de uma boa oferta</div>
-      <div class="pq-item"><span class="pq-icon">×</span>Quem quer comunicação sem participação ou alinhamento interno</div>
-    </div>
-  </div>
-</section>
-
-<!-- BRUNA -->
+<!-- SOBRE (teaser) -->
 <section class="bruna" id="sobre">
   <div class="bruna-img reveal">
     <!-- Substitua por: <img src="foto-bruna.jpg" style="width:100%;height:100%;object-fit:cover;display:block"> -->
@@ -255,59 +155,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="reveal">
-    <p class="bruna-eyebrow ibm">Quem está por trás da Verve</p>
+    <p class="bruna-eyebrow ibm">Por trás da Verve</p>
     <h2 class="bruna-nome qa">Bruna Pires</h2>
     <p class="bruna-cargo ibm">Diretora criativa e estrategista</p>
     <div class="bruna-texto">
-      <p>Há oito anos empreendo e produzo conteúdo. Não como profissão escolhida de primeira — mas como algo que foi se tornando inevitável. Comunicação sempre foi uma habilidade natural, que fui lapidando até transformar em negócio.</p>
-      <p>A Verve tem quase dois anos e já atendeu mais de 50 marcas e empresas. Não porque seguimos fórmula, mas porque antes de criar, a gente entende. Antes de falar, a gente percebe.</p>
-      <p>Sou criativa por natureza, estrategista por escolha. Tenho um olhar sensível à estética e à narrativa — e atento ao negócio. Ideias que fogem do óbvio, organização que gera clareza, entrega que une forma e resultado.</p>
-      <p>É essa combinação — estratégia, direção criativa, percepção, comunicação e execução — que hoje organiza o ecossistema da Verve em cada marca que atendo.</p>
+      <p class="qa" style="font-size:1.1rem;opacity:0.85;margin-bottom:1rem">Criatividade por natureza. Estratégia por escolha.</p>
+      <p>Organizo o ecossistema da Verve em cada marca que atendo — unindo direção, presença e performance.</p>
     </div>
     <div class="bruna-stats">
       <div><p class="stat-n qa">8</p><p class="stat-l ibm">anos empreendendo</p></div>
       <div><p class="stat-n qa">50+</p><p class="stat-l ibm">marcas atendidas</p></div>
       <div><p class="stat-n qa">2</p><p class="stat-l ibm">anos da Verve</p></div>
     </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <p class="sec-eyebrow ibm">Dúvidas frequentes</p>
-  <h2 class="sec-titulo qa">Perguntas frequentes</h2>
-  <div class="faq-lista reveal-stagger">
-    <div class="faq-item">
-      <button class="faq-btn qa" onclick="toggleFaq(this)">A Verve é uma agência de marketing?<em class="faq-icon">+</em></button>
-      <div class="faq-resp">Não de forma tradicional. A Verve organiza marca, presença e performance através de um ecossistema de produtos — DMD, Verve Lab e ECOA — em vez de oferecer uma lista solta de serviços.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn qa" onclick="toggleFaq(this)">Qual é a diferença entre DMD, Verve Lab e ECOA?<em class="faq-icon">+</em></button>
-      <div class="faq-resp">O DMD pode ser contratado à parte — indicado para empresas e profissionais autônomos que precisam de norte, clareza e direção. Quem contrata a Verve Lab já tem o DMD incluso. O ECOA também pode ser contratado de forma independente, sempre como um projeto de no mínimo 4 meses, com roteiros para vídeo e conteúdos estáticos prontos para mídia paga.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn qa" onclick="toggleFaq(this)">Qual é a diferença entre Communiqué e Totale?<em class="faq-icon">+</em></button>
-      <div class="faq-resp">No Communiqué, a Verve pensa e produz a comunicação, e a marca assume a publicação e a rotina da rede. No Totale, a Verve planeja, produz, publica e distribui — uma operação mais completa da presença digital.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn qa" onclick="toggleFaq(this)">A Verve também trabalha com mídia paga?<em class="faq-icon">+</em></button>
-      <div class="faq-resp">Sim, através do ECOA, que tem duas partes: a estruturação da oferta junto com o cliente — entendendo produto, desejo e necessidade para virar anúncio — e a gestão da mídia paga nas plataformas.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn qa" onclick="toggleFaq(this)">Vocês atendem empresas de qualquer segmento?<em class="faq-icon">+</em></button>
-      <div class="faq-resp">Atendemos empresas de diferentes segmentos que entendem comunicação como parte do negócio e buscam estratégia antes da execução. Avaliamos cada marca individualmente.</div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn qa" onclick="toggleFaq(this)">Como funciona o início de um projeto?<em class="faq-icon">+</em></button>
-      <div class="faq-resp">O DMD, quando contratado de forma avulsa, tem duração estimada de 30 a 60 dias*. Já a Verve Lab e o ECOA funcionam em ciclos de 4 meses: no primeiro mês, a marca recebe o próprio DMD e a estruturação da operação — entender objetivos, desejos e prioridades, organizar isso em pauta e definir o que de fato conseguimos executar. A partir daí, a operação segue em ritmo contínuo. <br><br>* Prazo estimado, sujeito à disponibilidade de agenda entre a Verve e a marca, e à complexidade do projeto.</div>
-    </div>
+    <a href="sobre.html" class="link-mais ibm">Conhecer a Verve →</a>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
   <p class="cta-eyebrow ibm reveal">Pronta para começar?</p>
-  <h2 class="cta-titulo qa reveal">Sua marca percebida do tamanho que ela realmente é.</h2>
+  <h2 class="cta-titulo qa split-reveal">Sua marca percebida do tamanho que ela realmente é.</h2>
   <p class="cta-sub reveal">Vamos entender onde sua marca está hoje e o que precisa ser construído a partir daqui.</p>
   <a href="https://wa.me/5544999259338" class="btn-light ibm reveal" target="_blank">
     Falar com a Verve no WhatsApp

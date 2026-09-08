@@ -12,6 +12,24 @@ function toggleFaq(btn) {
   if (!aberto) item.classList.add('aberto');
 }
 
+function toggleNav() {
+  const menu = document.getElementById('navMobile');
+  const btn = document.querySelector('.nav-toggle');
+  const aberto = menu.classList.toggle('aberto');
+  btn.classList.toggle('aberto', aberto);
+  document.body.style.overflow = aberto ? 'hidden' : '';
+}
+
+/* Reveal por palavra — quebra títulos .split-reveal em spans mascarados */
+(function () {
+  document.querySelectorAll('.split-reveal').forEach(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words
+      .map(w => `<span class="split-word"><span class="split-word-inner">${w}</span></span>`)
+      .join(' ');
+  });
+})();
+
 /* Scroll reveal — respeita prefers-reduced-motion */
 (function () {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -23,8 +41,16 @@ function toggleFaq(btn) {
     });
   });
 
+  document.querySelectorAll('.split-reveal').forEach(group => {
+    Array.from(group.querySelectorAll('.split-word-inner')).forEach((child, i) => {
+      child.style.transitionDelay = (i * 45) + 'ms';
+    });
+  });
+
+  const revealTargets = '.reveal, .reveal-stagger, .split-reveal';
+
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('in-view'));
+    document.querySelectorAll(revealTargets).forEach(el => el.classList.add('in-view'));
     return;
   }
 
@@ -37,5 +63,90 @@ function toggleFaq(btn) {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+  document.querySelectorAll(revealTargets).forEach(el => io.observe(el));
+})();
+
+/* Parallax sutil em elementos tipográficos grandes */
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items = document.querySelectorAll('.parallax');
+  if (reduced || !items.length) return;
+
+  let ticking = false;
+  function update() {
+    const vh = window.innerHeight;
+    items.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const offset = (center - vh / 2) * 0.08;
+      el.style.transform = `translateY(${-offset}px)`;
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
+})();
+
+/*
+ * bindScrollProgress — reporta o progresso (0 a 1) de um wrapper alto
+ * conforme ele atravessa a viewport. Usado por seções sticky que revelam
+ * conteúdo em etapas (manifesto) ou deslocam algo horizontalmente
+ * (projetos). Ignorado sob prefers-reduced-motion (quem chama já trata o
+ * fallback estático via CSS).
+ */
+function bindScrollProgress(wrapper, onProgress) {
+  if (!wrapper) return;
+  let ticking = false;
+  function update() {
+    const rect = wrapper.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    let progress = total > 0 ? -rect.top / total : 0;
+    progress = Math.max(0, Math.min(1, progress));
+    onProgress(progress);
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
+}
+
+/* Manifesto — VERVE fica fixo, frases revelam conforme o scroll */
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wrapper = document.getElementById('manifestoScroll');
+  if (reduced || !wrapper) return;
+
+  const fases = Array.from(wrapper.querySelectorAll('.manifesto-fase'));
+  if (!fases.length) return;
+
+  bindScrollProgress(wrapper, (progress) => {
+    let idx = Math.floor(progress * fases.length);
+    if (idx >= fases.length) idx = fases.length - 1;
+    fases.forEach((el, i) => el.classList.toggle('ativa', i === idx));
+  });
+})();
+
+/* Projetos — painéis deslocam horizontalmente conforme o scroll vertical (desktop) */
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wrapper = document.getElementById('projetosHscroll');
+  const track = document.getElementById('projetosHtrack');
+  if (reduced || !wrapper || !track) return;
+  if (!window.matchMedia('(min-width:901px)').matches) return;
+
+  bindScrollProgress(wrapper, (progress) => {
+    const sticky = wrapper.querySelector('.projetos-hsticky');
+    const max = track.scrollWidth - sticky.clientWidth;
+    if (max <= 0) return;
+    track.style.transform = `translateX(${-progress * max}px)`;
+  });
 })();
