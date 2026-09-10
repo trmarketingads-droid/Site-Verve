@@ -19,101 +19,130 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <a href="index.html" class="nav-marca">verve marketing</a>
   <div class="nav-links ibm">
-    <a href="ecossistema.html" class="nav-link">Ecossistema</a>
+    <a href="como-trabalhamos.html" class="nav-link">Como trabalhamos</a>
     <a href="projetos.html" class="nav-link ativo">Projetos</a>
-    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="quem-e-a-verve.html" class="nav-link">Quem é a Verve</a>
   </div>
   <a href="https://wa.me/5544999259338" class="nav-cta ibm" target="_blank">Falar com a Verve →</a>
-  <button class="nav-toggle" aria-label="Abrir menu" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="index.html" class="nav-mobile-link qa">Verve</a>
-  <a href="ecossistema.html" class="nav-mobile-link qa">Ecossistema</a>
-  <a href="projetos.html" class="nav-mobile-link qa" style="opacity:1">Projetos</a>
-  <a href="sobre.html" class="nav-mobile-link qa">Sobre</a>
-  <a href="https://wa.me/5544999259338" class="btn ibm" target="_blank">Falar com a Verve</a>
-</div>
 
 <!-- HERO DA PÁGINA -->
-<section class="page-hero">
-  <p class="sec-eyebrow ibm reveal">Repertório</p>
-  <h1 class="sec-titulo qa split-reveal">Alguns trabalhos que ganharam vida por aqui.</h1>
-  <p class="page-hero-sub reveal">Marcas que construíram direção, presença ou performance com a Verve.</p>
+<section class="page-hero" style="padding-bottom:2rem">
+  <p class="sec-eyebrow ibm reveal">Projetos</p>
+  <h1 class="sec-titulo qa split-reveal">Estratégia aplicada. Resultado percebido.</h1>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track ibm">
-    <span>Ivaí Residence</span><span>Mimosa</span><span>Milani &amp; Moro</span>
-    <span>Ivaí Residence</span><span>Mimosa</span><span>Milani &amp; Moro</span>
+<!-- FILTROS -->
+<div style="padding:0 6vw 1rem">
+  <div class="filtros reveal">
+    <button class="filtro-btn ibm ativo" onclick="filtrarCasos('todos', this)">Todos</button>
+    <button class="filtro-btn ibm" onclick="filtrarCasos('dmd', this)">DMD</button>
+    <button class="filtro-btn ibm" onclick="filtrarCasos('verve-lab', this)">Verve Lab</button>
+    <button class="filtro-btn ibm" onclick="filtrarCasos('ecoa', this)">ECOA</button>
   </div>
 </div>
 
-<!-- LISTA DE PROJETOS -->
-<section style="padding:2rem 6vw 4rem">
+<!-- LISTA DE CASOS -->
+<section style="padding:1rem 6vw 2rem">
+  <div class="casos-lista">
 
-  <!-- Projeto de exemplo — atualize nome, imagem e textos com informações reais do case -->
-  <div class="projeto-item reveal" id="ivai">
-    <div class="projeto-img">
-      <div class="projeto-img-inner"><p class="projeto-img-label ibm">← imagem do projeto aqui</p></div>
-    </div>
-    <div>
-      <p class="projeto-frente ibm">DMD · Direção</p>
-      <h2 class="projeto-nome qa split-reveal">Ivaí Residence</h2>
-      <p class="projeto-label ibm">Desafio</p>
-      <p class="projeto-texto">Consolidar uma percepção de marca mais sofisticada para um empreendimento residencial de alto padrão.</p>
-      <p class="projeto-label ibm">O que desenvolvemos</p>
-      <p class="projeto-texto">Aplicamos o DMD para estruturar posicionamento, narrativa e tom de voz antes de qualquer peça de comunicação.</p>
-      <p class="projeto-label ibm">Resultado</p>
-      <p class="projeto-texto">Uma direção de marca clara, pronta para orientar toda a comunicação do empreendimento.</p>
-    </div>
+    <!-- Projeto de exemplo — atualize nome, imagem e textos com informações reais do case -->
+    <article class="caso reveal" data-categoria="dmd" id="ivai">
+      <div class="caso-topo">
+        <span class="caso-tag ibm">DMD</span>
+        <span class="caso-contador ibm">01 / 03</span>
+      </div>
+      <div class="caso-img">
+        <div class="caso-img-inner"><p class="caso-img-label ibm">← imagem do projeto aqui</p></div>
+      </div>
+      <div>
+        <h2 class="caso-nome qa">Ivaí Residence</h2>
+        <p class="caso-texto">Direção estratégica para organizar como o empreendimento se posiciona, comunica seus diferenciais e apresenta sua proposta ao mercado.</p>
+        <div class="caso-indicadores">
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">[Indicador a definir]</span>
+            <span class="caso-indicador-label ibm">Posicionamento de marca</span>
+          </div>
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">[Indicador a definir]</span>
+            <span class="caso-indicador-label ibm">Percepção de valor</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projeto de exemplo — atualize nome, imagem e textos com informações reais do case -->
+    <article class="caso reveal" data-categoria="verve-lab" id="mimosa">
+      <div class="caso-topo">
+        <span class="caso-tag ibm">VERVE LAB</span>
+        <span class="caso-contador ibm">02 / 03</span>
+      </div>
+      <div class="caso-img">
+        <div class="caso-img-inner"><p class="caso-img-label ibm">← imagem do projeto aqui</p></div>
+      </div>
+      <div>
+        <h2 class="caso-nome qa">Mimosa</h2>
+        <p class="caso-texto">Estruturação da Verve Lab para planejar, produzir e organizar o conteúdo recorrente da marca, mantendo uma presença digital mais viva e constante.</p>
+        <div class="caso-indicadores">
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">[Indicador a definir]</span>
+            <span class="caso-indicador-label ibm">Consistência editorial</span>
+          </div>
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">[Indicador a definir]</span>
+            <span class="caso-indicador-label ibm">Presença digital</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Projeto de exemplo — atualize nome, imagem e textos com informações reais do case -->
+    <article class="caso reveal" data-categoria="ecoa" id="milani">
+      <div class="caso-topo">
+        <span class="caso-tag ibm">ECOA</span>
+        <span class="caso-contador ibm">03 / 03</span>
+      </div>
+      <div class="caso-img">
+        <div class="caso-img-inner"><p class="caso-img-label ibm">← imagem do projeto aqui</p></div>
+      </div>
+      <div>
+        <h2 class="caso-nome qa">Milani &amp; Moro</h2>
+        <p class="caso-texto">Aplicação do ECOA para estruturar oferta, mensagem e distribuição em mídia paga, com foco em performance.</p>
+        <div class="caso-indicadores">
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">[Indicador a definir]</span>
+            <span class="caso-indicador-label ibm">Conversão em mídia paga</span>
+          </div>
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">[Indicador a definir]</span>
+            <span class="caso-indicador-label ibm">Retorno sobre investimento</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </div>
-
-  <!-- Projeto de exemplo — atualize nome, imagem e textos com informações reais do case -->
-  <div class="projeto-item inverso reveal" id="mimosa">
-    <div class="projeto-img">
-      <div class="projeto-img-inner"><p class="projeto-img-label ibm">← imagem do projeto aqui</p></div>
-    </div>
-    <div>
-      <p class="projeto-frente ibm">Verve Lab · Presença</p>
-      <h2 class="projeto-nome qa split-reveal">Mimosa</h2>
-      <p class="projeto-label ibm">Desafio</p>
-      <p class="projeto-texto">Manter uma presença digital consistente e relevante em meio à rotina operacional do negócio.</p>
-      <p class="projeto-label ibm">O que desenvolvemos</p>
-      <p class="projeto-texto">Estruturamos a Verve Lab para planejar, produzir e organizar o conteúdo recorrente da marca.</p>
-      <p class="projeto-label ibm">Resultado</p>
-      <p class="projeto-texto">Uma comunicação mais viva e constante, mês a mês.</p>
-    </div>
-  </div>
-
-  <!-- Projeto de exemplo — atualize nome, imagem e textos com informações reais do case -->
-  <div class="projeto-item reveal" id="milani" style="border-bottom:none">
-    <div class="projeto-img">
-      <div class="projeto-img-inner"><p class="projeto-img-label ibm">← imagem do projeto aqui</p></div>
-    </div>
-    <div>
-      <p class="projeto-frente ibm">ECOA · Performance</p>
-      <h2 class="projeto-nome qa split-reveal">Milani &amp; Moro</h2>
-      <p class="projeto-label ibm">Desafio</p>
-      <p class="projeto-texto">Transformar uma oferta específica em campanha de mídia paga com mensagem clara.</p>
-      <p class="projeto-label ibm">O que desenvolvemos</p>
-      <p class="projeto-texto">Aplicamos o ECOA para estruturar oferta, mensagem e distribuição em mídia paga.</p>
-      <p class="projeto-label ibm">Resultado</p>
-      <p class="projeto-texto">Uma comunicação publicitária mais direcionada, com foco em performance.</p>
-    </div>
-  </div>
-
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <p class="cta-eyebrow ibm reveal">Pronta para começar?</p>
-  <h2 class="cta-titulo qa split-reveal">Sua marca percebida do tamanho que ela realmente é.</h2>
-  <p class="cta-sub reveal">Vamos entender onde sua marca está hoje e o que precisa ser construído a partir daqui.</p>
-  <a href="https://wa.me/5544999259338" class="btn-light ibm reveal" target="_blank">
-    Falar com a Verve no WhatsApp
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
+<!-- NAV FINAL -->
+<section style="padding:2rem 0 6rem">
+  <div class="nav-final reveal">
+    <p class="nav-final-titulo ibm">Seguir explorando a Verve</p>
+    <div class="nav-final-grid">
+      <a href="index.html" class="nav-final-item">
+        <span class="nav-final-nome ibm">Home</span>
+        <span class="nav-final-sub">Apresentação</span>
+      </a>
+      <a href="como-trabalhamos.html" class="nav-final-item">
+        <span class="nav-final-nome ibm">Como trabalhamos</span>
+        <span class="nav-final-sub">Método</span>
+      </a>
+      <a href="quem-e-a-verve.html" class="nav-final-item">
+        <span class="nav-final-nome ibm">Quem é a Verve</span>
+        <span class="nav-final-sub">Agência boutique</span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -143,6 +172,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="footer-tagline ibm">Fazemos hoje o que permanece amanhã</p>
   </div>
 </footer>
+
+<!-- ABA INFERIOR (mobile) -->
+<nav class="tab-bar">
+  <div class="tab-bar-grid">
+    <a href="index.html" class="tab-item ibm"><span class="tab-item-marca"></span>Início</a>
+    <a href="como-trabalhamos.html" class="tab-item ibm"><span class="tab-item-marca"></span>Método</a>
+    <a href="projetos.html" class="tab-item ativo ibm"><span class="tab-item-marca"></span>Projetos</a>
+    <a href="quem-e-a-verve.html" class="tab-item ibm"><span class="tab-item-marca"></span>Sobre</a>
+  </div>
+</nav>
 
 <!-- LGPD: banner de cookies -->
 <div class="cookie-bar" id="cookieBar">

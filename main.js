@@ -12,6 +12,45 @@ function toggleFaq(btn) {
   if (!aberto) item.classList.add('aberto');
 }
 
+function toggleDisclosure(btn) {
+  const item = btn.closest('.disclosure-item');
+  const aberto = item.classList.contains('aberto');
+  item.classList.toggle('aberto', !aberto);
+  btn.textContent = aberto ? '[ Saiba mais → ]' : '[ Fechar × ]';
+}
+
+function toggleEtapa(btn) {
+  const item = btn.closest('.etapa-item');
+  const aberto = item.classList.contains('aberto');
+  document.querySelectorAll('.etapa-item').forEach(i => i.classList.remove('aberto'));
+  if (!aberto) item.classList.add('aberto');
+}
+
+function filtrarCasos(categoria, btn) {
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+  document.querySelectorAll('.caso').forEach(caso => {
+    const mostrar = categoria === 'todos' || caso.dataset.categoria === categoria;
+    caso.style.display = mostrar ? 'grid' : 'none';
+  });
+}
+
+function enviarFormularioContato(event) {
+  event.preventDefault();
+  const form = event.target;
+  const nome = form.nome.value.trim();
+  const telefone = form.telefone.value.trim();
+  const email = form.email.value.trim();
+  const partes = [
+    'Olá! Vim pelo site da Verve e gostaria de conversar.',
+    nome ? `Nome: ${nome}` : '',
+    telefone ? `Telefone: ${telefone}` : '',
+    email ? `E-mail: ${email}` : ''
+  ].filter(Boolean);
+  const msg = encodeURIComponent(partes.join('\n'));
+  window.open(`https://wa.me/5544999259338?text=${msg}`, '_blank');
+}
+
 function toggleNav() {
   const menu = document.getElementById('navMobile');
   const btn = document.querySelector('.nav-toggle');
@@ -132,6 +171,25 @@ function bindScrollProgress(wrapper, onProgress) {
     let idx = Math.floor(progress * fases.length);
     if (idx >= fases.length) idx = fases.length - 1;
     fases.forEach((el, i) => el.classList.toggle('ativa', i === idx));
+  });
+})();
+
+/* Transição fluida entre páginas — fade-out curto antes de navegar */
+(function () {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    if (link.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) return;
+
+    e.preventDefault();
+    document.body.classList.add('saindo');
+    setTimeout(() => { window.location.href = href; }, 200);
   });
 })();
 

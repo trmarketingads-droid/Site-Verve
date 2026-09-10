@@ -176,6 +176,11 @@ nav {
   font-size:1rem; line-height:1.8;
   color:var(--marrom); opacity:0.55; max-width:460px;
 }
+.hero-tagline-grande {
+  font-family:'Qasbyne','Georgia',serif; font-style:italic;
+  font-size:clamp(1.3rem,2.8vw,1.9rem); color:var(--marrom);
+  opacity:0.8; margin-bottom:0.85rem; line-height:1.3;
+}
 .hero-actions { display:flex; flex-direction:column; align-items:flex-end; gap:0.75rem; }
 .btn {
   display:inline-flex; align-items:center; gap:0.75rem;
@@ -754,6 +759,225 @@ footer { background:var(--marrom); padding:4rem 6vw; }
 .paraquem-ressalva {
   font-size:0.85rem; line-height:1.8; color:var(--marrom); opacity:0.45;
   max-width:520px;
+}
+
+/* ── CAMINHOS (home — bloco escuro com os 3 acessos principais) ── */
+.caminhos {
+  background:var(--marrom); padding:0.25rem;
+  margin:0 6vw 4rem;
+}
+.caminhos-grid { display:grid; grid-template-columns:1fr 1fr 1fr; }
+.caminho-item {
+  display:flex; flex-direction:column; justify-content:center; gap:0.6rem;
+  padding:2rem 1.5rem; text-decoration:none; color:var(--off);
+  border-left:1px solid rgba(250,247,242,0.1);
+  transition:background 0.3s ease;
+  min-height:9rem;
+}
+.caminho-item:first-child { border-left:none; }
+.caminho-item:hover { background:rgba(250,247,242,0.05); }
+.caminho-nome {
+  font-family:'Qasbyne','Georgia',serif; font-size:clamp(1rem,2vw,1.3rem);
+  color:var(--off); line-height:1.25;
+}
+.caminho-item:hover .caminho-nome { color:var(--bege); }
+.caminho-sub {
+  font-family:'IBM Plex Mono',monospace; font-size:0.52rem;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--off); opacity:0.4; line-height:1.5;
+}
+
+/* ── MÓDULO (cartão editorial: DMD / Verve Lab / ECOA) ── */
+.modulo { padding:5rem 6vw; border-bottom:1px solid rgba(74,56,45,0.07); }
+.modulo-card { max-width:760px; margin:0 auto; }
+.modulo.escuro { background:var(--marrom); }
+.modulo-top { display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; margin-bottom:1.75rem; }
+.modulo-nome { font-family:'Qasbyne','Georgia',serif; font-size:clamp(2rem,4.5vw,3rem); color:var(--marrom); line-height:1; }
+.modulo.escuro .modulo-nome { color:var(--off); }
+.modulo-subtitulo { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--marrom); opacity:0.5; margin-top:0.5rem; display:block; }
+.modulo.escuro .modulo-subtitulo { color:var(--bege); opacity:0.6; }
+.modulo-badge {
+  font-family:'IBM Plex Mono',monospace; font-size:0.52rem;
+  letter-spacing:0.16em; text-transform:uppercase;
+  padding:0.5rem 0.85rem; flex-shrink:0;
+  background:var(--azul); color:var(--marrom);
+}
+.modulo.escuro .modulo-badge { background:rgba(250,247,242,0.1); color:var(--bege); }
+.modulo-quote {
+  font-family:'Qasbyne','Georgia',serif; font-style:italic; font-size:clamp(1.1rem,2.2vw,1.5rem);
+  color:var(--marrom); line-height:1.5; margin-bottom:2rem;
+}
+.modulo.escuro .modulo-quote { color:var(--off); opacity:0.92; }
+.modulo-texto { font-size:0.92rem; line-height:1.85; color:var(--marrom); opacity:0.65; margin-bottom:1.25rem; }
+.modulo.escuro .modulo-texto { color:var(--bege); opacity:0.75; }
+.modulo-label { font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.4; margin:2rem 0 0.85rem; display:block; }
+.modulo.escuro .modulo-label { color:var(--bege); opacity:0.4; }
+.modulo-tags { display:flex; flex-wrap:wrap; gap:0.6rem; }
+.modulo-tag { font-size:0.78rem; padding:0.5rem 0.85rem; background:rgba(74,56,45,0.05); color:var(--marrom); }
+.modulo.escuro .modulo-tag { background:rgba(250,247,242,0.06); color:var(--bege); }
+
+/* ── DISCLOSURE ("Saiba mais" genérico) ── */
+.disclosure-item { border-top:0.5px solid rgba(74,56,45,0.12); padding:1.5rem 0; }
+.modulo.escuro .disclosure-item { border-top-color:rgba(250,247,242,0.12); }
+.disclosure-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+.disclosure-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--marrom); }
+.modulo.escuro .disclosure-nome { color:var(--off); }
+.disclosure-trigger {
+  background:none; border:none; cursor:pointer; padding:0;
+  font-family:'IBM Plex Mono',monospace; font-size:0.54rem;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.5; transition:opacity 0.2s;
+  display:flex; align-items:center; gap:0.4rem;
+}
+.modulo.escuro .disclosure-trigger { color:var(--bege); opacity:0.55; }
+.disclosure-trigger:hover { opacity:1; }
+.disclosure-body {
+  max-height:0; overflow:hidden;
+  transition:max-height 0.4s ease, padding-top 0.4s ease;
+}
+.disclosure-item.aberto .disclosure-body { max-height:600px; padding-top:1.25rem; }
+.disclosure-texto { font-size:0.88rem; line-height:1.8; color:var(--marrom); opacity:0.65; margin-bottom:1rem; }
+.modulo.escuro .disclosure-texto { color:var(--bege); opacity:0.75; }
+.disclosure-lista { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.25rem; }
+.disclosure-lista li { font-size:0.82rem; line-height:1.6; color:var(--marrom); opacity:0.6; list-style:none; padding-left:1rem; position:relative; }
+.disclosure-lista li::before { content:'—'; position:absolute; left:0; opacity:0.5; }
+.modulo.escuro .disclosure-lista li { color:var(--bege); opacity:0.7; }
+.disclosure-fechamento { font-family:'Qasbyne','Georgia',serif; font-style:italic; font-size:0.9rem; color:var(--marrom); opacity:0.7; line-height:1.6; border-left:2px solid var(--marrom); padding-left:1rem; }
+.modulo.escuro .disclosure-fechamento { color:var(--bege); border-left-color:var(--bege); opacity:0.75; }
+
+/* ── PROCESSO (etapas — ECOA) ── */
+.etapas { display:flex; flex-direction:column; }
+.etapa-item { border-top:0.5px solid rgba(74,56,45,0.1); }
+.etapa-item:last-child { border-bottom:0.5px solid rgba(74,56,45,0.1); }
+.etapa-trigger {
+  width:100%; background:none; border:none; cursor:pointer; text-align:left;
+  display:flex; align-items:center; gap:1.1rem; padding:1.25rem 0;
+}
+.etapa-letra {
+  width:2.4rem; height:2.4rem; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Qasbyne','Georgia',serif; font-size:1.1rem;
+  background:rgba(74,56,45,0.06); color:var(--marrom);
+}
+.etapa-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.05rem; color:var(--marrom); display:block; }
+.etapa-num { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+.etapa-icon { margin-left:auto; opacity:0.4; transition:transform 0.3s; font-style:normal; font-size:1rem; }
+.etapa-item.aberto .etapa-icon { transform:rotate(45deg); opacity:1; }
+.etapa-body { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
+.etapa-item.aberto .etapa-body { max-height:200px; }
+.etapa-texto { font-size:0.85rem; line-height:1.7; color:var(--marrom); opacity:0.6; padding:0 0 1.25rem 3.5rem; }
+
+/* ── NAV FINAL (cross-navegação de 3 vias ao fim de cada página) ── */
+.nav-final { background:var(--marrom); padding:0.25rem; margin:0 6vw; }
+.nav-final-titulo { text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--bege); opacity:0.45; padding:1.75rem 1rem 0.5rem; }
+.nav-final-grid { display:grid; grid-template-columns:1fr 1fr 1fr; }
+.nav-final-item {
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem;
+  padding:1.75rem 1rem; text-decoration:none; text-align:center;
+  border-left:1px solid rgba(250,247,242,0.1);
+  transition:background 0.3s ease;
+}
+.nav-final-item:first-child { border-left:none; }
+.nav-final-item:hover { background:rgba(250,247,242,0.05); }
+.nav-final-nome { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--off); }
+.nav-final-sub { font-size:0.72rem; color:var(--bege); opacity:0.45; }
+
+/* ── CASOS (Projetos — lista editorial) ── */
+.filtros { display:flex; gap:0.6rem; overflow-x:auto; padding-bottom:0.25rem; margin-bottom:1rem; }
+.filtro-btn {
+  flex-shrink:0; cursor:pointer; border:0.5px solid rgba(74,56,45,0.2); background:none;
+  font-family:'IBM Plex Mono',monospace; font-size:0.56rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.55; padding:0.55rem 1rem; transition:all 0.2s;
+}
+.filtro-btn:hover { opacity:0.85; }
+.filtro-btn.ativo { background:var(--marrom); color:var(--off); opacity:1; border-color:var(--marrom); }
+.casos-lista { display:flex; flex-direction:column; }
+.caso {
+  padding:4rem 0; border-top:0.5px solid rgba(74,56,45,0.1);
+  display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center;
+}
+.casos-lista .caso:last-child { border-bottom:0.5px solid rgba(74,56,45,0.1); }
+.caso-topo { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; }
+.caso-tag { font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.14em; text-transform:uppercase; background:var(--azul); color:var(--marrom); padding:0.4rem 0.7rem; }
+.caso-contador { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--marrom); opacity:0.4; letter-spacing:0.1em; }
+.caso-img { aspect-ratio:4/3; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; }
+.caso-img-inner { width:100%; height:100%; display:flex; align-items:flex-end; padding:1.25rem; }
+.caso-img-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.3; }
+.caso-nome { font-family:'Qasbyne','Georgia',serif; font-size:clamp(1.6rem,3vw,2.3rem); color:var(--marrom); text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:1rem; }
+.caso-texto { font-size:0.9rem; line-height:1.8; color:var(--marrom); opacity:0.62; margin-bottom:1.5rem; }
+.caso-indicadores { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+.caso-indicador { border:0.5px solid rgba(74,56,45,0.15); padding:1rem; }
+.caso-indicador-valor { font-family:'Qasbyne','Georgia',serif; font-size:1.1rem; color:var(--marrom); opacity:0.6; display:block; margin-bottom:0.5rem; }
+.caso-indicador-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+
+/* ── FUNDADORES (Quem é a Verve) ── */
+.fundadores-img { aspect-ratio:4/5; max-height:520px; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; margin-bottom:2rem; }
+.fundadores-img-inner { width:100%; height:100%; display:flex; align-items:flex-end; padding:1.5rem; }
+.fundadores-img-label { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.35; }
+.fundadores-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.fundador { padding:1.75rem; background:rgba(74,56,45,0.03); border:0.5px solid rgba(74,56,45,0.08); }
+.fundador-top { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; margin-bottom:0.75rem; }
+.fundador-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.3rem; color:var(--marrom); }
+.fundador-tag { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--azul); color:var(--marrom); padding:0.35rem 0.6rem; white-space:nowrap; }
+.fundador-funcao { font-size:0.78rem; color:var(--marrom); opacity:0.7; font-weight:500; margin-bottom:0.6rem; }
+.fundador-texto { font-size:0.82rem; line-height:1.7; color:var(--marrom); opacity:0.58; }
+
+/* ── CALLOUTS (pequenos destaques boutique) ── */
+.callouts { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+.callout-mini-titulo { font-family:'Qasbyne','Georgia',serif; font-size:1rem; color:var(--marrom); margin-bottom:0.5rem; }
+.callout-mini-texto { font-size:0.8rem; line-height:1.65; color:var(--marrom); opacity:0.55; }
+
+/* ── FORMULÁRIO ── */
+.form-campo { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.75rem; }
+.form-label { font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--bege); opacity:0.6; }
+.form-input {
+  background:none; border:none; border-bottom:1px solid rgba(250,247,242,0.25);
+  color:var(--off); font-family:'Satoshi',sans-serif; font-size:0.95rem;
+  padding:0.6rem 0; transition:border-color 0.2s;
+}
+.form-input:focus { outline:none; border-bottom-color:var(--bege); }
+.form-input::placeholder { color:rgba(250,247,242,0.3); }
+
+/* ── ABA INFERIOR (mobile) ── */
+.tab-bar {
+  display:none;
+  position:fixed; top:auto; bottom:0; left:0; right:0; z-index:100;
+  background:rgba(250,247,242,0.97); backdrop-filter:blur(12px);
+  border-top:1px solid rgba(74,56,45,0.08); border-bottom:none;
+  padding:0 0 env(safe-area-inset-bottom,0px);
+}
+.tab-bar-grid { display:flex; max-width:420px; margin:0 auto; }
+.tab-item {
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:0.3rem; padding:0.85rem 0.25rem; text-decoration:none;
+  font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.45;
+}
+.tab-item-marca { width:5px; height:5px; border-radius:50%; background:var(--marrom); opacity:0.3; }
+.tab-item.ativo { opacity:1; }
+.tab-item.ativo .tab-item-marca { opacity:1; background:var(--marrom); }
+
+/* ── TRANSIÇÃO ENTRE PÁGINAS ── */
+body { opacity:1; transition:opacity 0.22s ease; }
+body.saindo { opacity:0; }
+@media (prefers-reduced-motion: reduce) {
+  body { transition:none; }
+}
+
+@media(max-width:900px){
+  .tab-bar { display:block; }
+  body { padding-bottom:4.5rem; }
+  .caminhos-grid { grid-template-columns:1fr; }
+  .caminho-item { border-left:none; border-top:1px solid rgba(250,247,242,0.1); }
+  .caminho-item:first-child { border-top:none; }
+  .modulo-top { flex-direction:column; }
+  .caso { grid-template-columns:1fr; gap:1.5rem; }
+  .caso-indicadores { grid-template-columns:1fr 1fr; }
+  .fundadores-grid { grid-template-columns:1fr; }
+  .callouts { grid-template-columns:1fr; }
+  .nav-final-grid { grid-template-columns:1fr !important; }
+  .nav-final-item { border-left:none; border-top:1px solid rgba(250,247,242,0.1); }
+  .nav-final-item:first-child { border-top:none; }
 }
 
 /* ── RESPONSIVO ── */
