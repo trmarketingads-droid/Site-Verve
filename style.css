@@ -439,10 +439,10 @@ nav {
 .btn-light:hover { opacity:0.85; }
 
 /* ── FOOTER ──
-   Fundo bege (não marrom) para não empilhar duas massas escuras em
-   sequência com o bloco de navegação final / caminhos, que já são
-   marrom. Compacto: uma linha de identidade+contato, uma linha legal. */
-footer { background:var(--bege); padding:2.5rem 6vw; }
+   Fundo azul (não marrom) para não empilhar massas escuras em sequência
+   com blocos como caminhos / nav final / definição, que já são marrom.
+   Compacto: uma linha de identidade+contato, uma linha legal. */
+footer { background:var(--azul); padding:2rem 6vw; }
 .footer-top {
   display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
   gap:1.25rem; padding-bottom:1.5rem;
@@ -860,12 +860,6 @@ footer { background:var(--bege); padding:2.5rem 6vw; }
 .etapa-body { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
 .etapa-item.aberto .etapa-body { max-height:260px; }
 .etapa-texto { font-size:0.85rem; line-height:1.7; color:var(--marrom); opacity:0.6; padding:0 0 1.25rem 4.45rem; }
-.ecoa-cta-futuro {
-  background:none; border:none; padding:0; margin-top:2rem;
-  font-family:'IBM Plex Mono',monospace; font-size:0.56rem;
-  letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--marrom); opacity:0.45; cursor:default;
-}
 
 /* ── NAV FINAL (cross-navegação de 3 vias ao fim de cada página) ── */
 .nav-final { background:var(--marrom); padding:0.25rem; margin:0 6vw; }
@@ -911,27 +905,27 @@ footer { background:var(--bege); padding:2.5rem 6vw; }
 .caso-contexto { font-family:'Qasbyne','Georgia',serif; font-style:italic; font-size:0.95rem; color:var(--marrom); opacity:0.7; line-height:1.6; margin:1rem 0 0; }
 .caso-indicadores { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.75rem; }
 .caso-indicadores .caso-indicador:only-child { grid-column:1/-1; }
-.caso-indicador { border:0.5px solid rgba(74,56,45,0.15); padding:1.1rem 1.25rem; }
-.caso-indicador-valor { font-family:'Qasbyne','Georgia',serif; font-size:2rem; color:var(--marrom); display:block; margin-bottom:0.4rem; line-height:1; }
-.caso-indicador-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.45; }
+.caso-indicador { border-left:3px solid var(--vinho); background:rgba(85,11,24,0.04); padding:1.1rem 1.25rem; }
+.caso-indicador-valor { font-family:'Qasbyne','Georgia',serif; font-size:2.4rem; color:var(--vinho); display:block; margin-bottom:0.4rem; line-height:1; }
+.caso-indicador-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.5; }
 .caso-nota { font-size:0.76rem; line-height:1.6; color:var(--marrom); opacity:0.5; margin-top:0.75rem; }
+.caso-nota sup { font-size:0.7em; }
 
 /* ── FUNDADORES (Quem é a Verve) ── */
-.fundadores-img { aspect-ratio:4/5; max-height:520px; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; margin-bottom:2rem; }
-.fundadores-img-inner { width:100%; height:100%; display:flex; align-items:flex-end; padding:1.5rem; }
-.fundadores-img-label { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.35; }
 .fundadores-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
-.fundador { padding:1.75rem; background:rgba(74,56,45,0.03); border:0.5px solid rgba(74,56,45,0.08); }
+.fundador { background:rgba(74,56,45,0.03); border:0.5px solid rgba(74,56,45,0.08); overflow:hidden; }
+.fundador-img { aspect-ratio:4/5; overflow:hidden; background:rgba(74,56,45,0.04); }
+.fundador-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.fundador > .fundador-top,
+.fundador > .fundador-funcao,
+.fundador > .fundador-texto { padding-left:1.75rem; padding-right:1.75rem; }
+.fundador > .fundador-top { margin-top:1.75rem; }
+.fundador > .fundador-texto { padding-bottom:1.75rem; }
 .fundador-top { display:flex; align-items:center; justify-content:space-between; gap:0.75rem; margin-bottom:0.75rem; }
 .fundador-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.3rem; color:var(--marrom); }
 .fundador-tag { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--azul); color:var(--marrom); padding:0.35rem 0.6rem; white-space:nowrap; }
 .fundador-funcao { font-size:0.78rem; color:var(--marrom); opacity:0.7; font-weight:500; margin-bottom:0.6rem; }
 .fundador-texto { font-size:0.82rem; line-height:1.7; color:var(--marrom); opacity:0.58; }
-
-/* ── CALLOUTS (pequenos destaques boutique) ── */
-.callouts { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
-.callout-mini-titulo { font-family:'Qasbyne','Georgia',serif; font-size:1rem; color:var(--marrom); margin-bottom:0.5rem; }
-.callout-mini-texto { font-size:0.8rem; line-height:1.65; color:var(--marrom); opacity:0.55; }
 
 /* ── FORMULÁRIO ── */
 .form-campo { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.75rem; }
@@ -943,6 +937,14 @@ footer { background:var(--bege); padding:2.5rem 6vw; }
 }
 .form-input:focus { outline:none; border-bottom-color:var(--bege); }
 .form-input::placeholder { color:rgba(250,247,242,0.3); }
+
+/* Variante clara do módulo (bege) — usada onde um bloco escuro em sequência
+   pesaria demais na página (ex.: formulário final de Quem é a Verve). */
+.modulo.bege { background:var(--bege); }
+.modulo.bege .form-label { color:var(--marrom); opacity:0.55; }
+.modulo.bege .form-input { border-bottom-color:rgba(74,56,45,0.25); color:var(--marrom); }
+.modulo.bege .form-input:focus { border-bottom-color:var(--marrom); }
+.modulo.bege .form-input::placeholder { color:rgba(74,56,45,0.35); }
 
 /* ── ABA INFERIOR (mobile) ── */
 .tab-bar {
