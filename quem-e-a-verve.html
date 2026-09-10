@@ -36,8 +36,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FUNDADORES -->
 <section class="modulo" style="padding-top:2rem">
   <div class="modulo-card reveal">
-    <p class="modulo-label ibm" style="margin-top:0">[ 01 / Os fundadores ]</p>
-    <p class="modulo-texto" style="font-size:1rem;max-width:none">Sócios na Verve, Bruna e Thalles unem perspectivas complementares em uma mesma construção: comunicação, criação e sensibilidade de um lado; estratégia, performance e gestão do outro.</p>
+    <p class="modulo-label ibm" style="margin-top:0">Como surgiu a Verve</p>
+    <p class="modulo-texto" style="font-size:1rem;max-width:none">A Verve nasceu da união entre Bruna e Thalles — fundadores, sócios e, antes de tudo, marido e esposa. De um lado, comunicação, criação e percepção de marca; do outro, estratégia, mídia e gestão. Foi dessa combinação, dentro e fora do trabalho, que a Verve ganhou forma.</p>
 
     <div class="fundadores-img reveal">
       <!-- Substitua por: <img src="foto-bruna-thalles.jpg" style="width:100%;height:100%;object-fit:cover;display:block"> -->
@@ -52,16 +52,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="fundador-nome qa">Bruna</span>
           <span class="fundador-tag ibm">Criação &amp; olhar</span>
         </div>
-        <p class="fundador-funcao">Direção criativa · Estratégia narrativa · Percepção de marca</p>
+        <p class="fundador-funcao">Direção criativa · Estratégia · Percepção de marca</p>
         <p class="fundador-texto">Criativa por natureza e estrategista por escolha. Há oito anos empreende e produz conteúdo, transformando uma habilidade natural para comunicação em direção, narrativa e negócio.</p>
       </div>
       <div class="fundador">
         <div class="fundador-top">
           <span class="fundador-nome qa">Thalles</span>
-          <span class="fundador-tag ibm">Estratégia &amp; negócio</span>
+          <span class="fundador-tag ibm">Mídia &amp; performance</span>
         </div>
-        <p class="fundador-funcao">[Área de atuação a confirmar]</p>
-        <p class="fundador-texto">[Espaço reservado para uma breve apresentação de Thalles.]</p>
+        <p class="fundador-funcao">Estratégia · Mídia paga · Gestão</p>
+        <p class="fundador-texto">Thalles atua conectando mídia e performance à realidade do negócio. Seu olhar parte dos processos da empresa, da oferta e da operação para estruturar estratégias de mídia paga mais coerentes com os objetivos da marca. Na Verve, também conduz a gestão financeira e administrativa.</p>
       </div>
     </div>
   </div>
@@ -91,26 +91,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="modulo escuro" style="padding-top:0;border-top:none">
   <div class="modulo-card reveal">
     <p class="modulo-label ibm" style="margin-top:0">Vamos conversar?</p>
-    <h2 class="modulo-nome qa" style="font-size:clamp(1.6rem,3.6vw,2.2rem);margin-bottom:1rem">Conte um pouco sobre a sua marca.</h2>
-    <p class="modulo-texto">Deixe seus dados abaixo. Vamos abrir uma conversa no WhatsApp para entender o momento do seu negócio.</p>
-    <form onsubmit="enviarFormularioContato(event)">
+    <h2 class="modulo-nome qa" style="font-size:clamp(1.6rem,3.6vw,2.2rem);margin-bottom:1rem">Quero entender se a Verve faz sentido para o meu negócio.</h2>
+    <p class="modulo-texto">Deixe seus dados e entraremos em contato para entender melhor o seu momento.</p>
+    <form id="formInteresse" onsubmit="enviarFormularioInteresse(event)">
       <div class="form-campo">
         <label class="form-label ibm" for="nome">Nome</label>
-        <input class="form-input" type="text" id="nome" name="nome" placeholder="Como podemos te chamar?">
+        <input class="form-input" type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
+      </div>
+      <div class="form-campo">
+        <label class="form-label ibm" for="empresa">Empresa ou marca</label>
+        <input class="form-input" type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa ou marca">
+      </div>
+      <div class="form-campo">
+        <label class="form-label ibm" for="email">E-mail</label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="seu.email@empresa.com" required>
       </div>
       <div class="form-campo">
         <label class="form-label ibm" for="telefone">Telefone</label>
         <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
       </div>
       <div class="form-campo">
-        <label class="form-label ibm" for="email">E-mail</label>
-        <input class="form-input" type="email" id="email" name="email" placeholder="seu.email@empresa.com">
+        <label class="form-label ibm" for="mensagem">Mensagem opcional</label>
+        <textarea class="form-input" id="mensagem" name="mensagem" rows="3" placeholder="Conte um pouco sobre o momento da sua marca, se quiser."></textarea>
       </div>
       <button type="submit" class="btn-light ibm">
-        Enviar e conversar no WhatsApp
+        Enviar contato
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </form>
+    <div class="form-sucesso" id="formSucesso" hidden>
+      <p class="modulo-quote qa" style="margin-bottom:0.75rem">Recebemos seu contato.</p>
+      <p class="modulo-texto" style="margin-bottom:0">Em breve alguém da Verve vai falar com você.</p>
+    </div>
   </div>
 </section>
 
@@ -140,26 +152,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-top">
     <div>
       <p class="footer-marca-nome qa">verve marketing</p>
-      <p class="footer-tagline ibm">Arte, negócios, resultados</p>
+      <p class="footer-tagline ibm">Cianorte · PR — Atendimento nacional</p>
     </div>
-    <div>
-      <p class="footer-col-titulo ibm">Contato</p>
+    <div class="footer-contato">
       <a href="mailto:contato.grupoverve@gmail.com" class="footer-link">contato.grupoverve@gmail.com</a>
       <a href="https://wa.me/5544999259338" class="footer-link" target="_blank">(44) 99925-9338</a>
-    </div>
-    <div>
-      <p class="footer-col-titulo ibm">Redes sociais</p>
       <a href="https://instagram.com/vervemarketing__" class="footer-link" target="_blank">@vervemarketing__</a>
-    </div>
-    <div>
-      <p class="footer-col-titulo ibm">Localização</p>
-      <p class="footer-link" style="cursor:default">Cianorte · PR</p>
-      <p class="footer-link" style="cursor:default">Atendimento nacional</p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-cnpj ibm">CNPJ 59.082.553/0001-02 · Verve Marketing · © 2026 · <a href="termos.html" class="footer-link" style="display:inline;opacity:0.7">Termos de Uso</a> · <a href="privacidade.html" class="footer-link" style="display:inline;opacity:0.7">Política de Privacidade</a></p>
-    <p class="footer-tagline ibm">Fazemos hoje o que permanece amanhã</p>
+    <p class="footer-cnpj ibm">CNPJ 59.082.553/0001-02 · Verve Marketing · © 2026</p>
+    <p class="footer-cnpj ibm"><a href="termos.html" class="footer-link">Termos de Uso</a> · <a href="privacidade.html" class="footer-link">Política de Privacidade</a></p>
   </div>
 </footer>
 

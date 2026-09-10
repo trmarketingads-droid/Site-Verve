@@ -26,6 +26,17 @@ function toggleEtapa(btn) {
   if (!aberto) item.classList.add('aberto');
 }
 
+/* Etapas (ECOA) — abrem também ao passar o mouse em dispositivos com hover fino (desktop) */
+(function () {
+  if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  document.querySelectorAll('.etapa-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.etapa-item').forEach(i => i.classList.remove('aberto'));
+      item.classList.add('aberto');
+    });
+  });
+})();
+
 function filtrarCasos(categoria, btn) {
   document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
   btn.classList.add('ativo');
@@ -35,20 +46,28 @@ function filtrarCasos(categoria, btn) {
   });
 }
 
-function enviarFormularioContato(event) {
+/*
+ * Formulário de interesse (Quem é a Verve) — hoje apenas confirma o envio na
+ * própria página. Integração futura (e-mail / Google Sheets / CRM) deve
+ * substituir o bloco abaixo por uma chamada real, mantendo a mesma captura
+ * de dados do form e o mesmo estado de sucesso.
+ */
+function enviarFormularioInteresse(event) {
   event.preventDefault();
   const form = event.target;
-  const nome = form.nome.value.trim();
-  const telefone = form.telefone.value.trim();
-  const email = form.email.value.trim();
-  const partes = [
-    'Olá! Vim pelo site da Verve e gostaria de conversar.',
-    nome ? `Nome: ${nome}` : '',
-    telefone ? `Telefone: ${telefone}` : '',
-    email ? `E-mail: ${email}` : ''
-  ].filter(Boolean);
-  const msg = encodeURIComponent(partes.join('\n'));
-  window.open(`https://wa.me/5544999259338?text=${msg}`, '_blank');
+  const dados = {
+    nome: form.nome.value.trim(),
+    empresa: form.empresa.value.trim(),
+    email: form.email.value.trim(),
+    telefone: form.telefone.value.trim(),
+    mensagem: form.mensagem.value.trim()
+  };
+
+  // TODO: conectar a um sistema real de captura (e-mail, Google Sheets, CRM).
+  console.log('Novo contato — Quero entender se a Verve faz sentido para o meu negócio:', dados);
+
+  form.hidden = true;
+  document.getElementById('formSucesso').hidden = false;
 }
 
 function toggleNav() {

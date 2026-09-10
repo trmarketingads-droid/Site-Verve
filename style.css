@@ -438,20 +438,24 @@ nav {
 }
 .btn-light:hover { opacity:0.85; }
 
-/* ── FOOTER ── */
-footer { background:var(--marrom); padding:4rem 6vw; }
+/* ── FOOTER ──
+   Fundo bege (não marrom) para não empilhar duas massas escuras em
+   sequência com o bloco de navegação final / caminhos, que já são
+   marrom. Compacto: uma linha de identidade+contato, uma linha legal. */
+footer { background:var(--bege); padding:2.5rem 6vw; }
 .footer-top {
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:3rem; padding-bottom:3rem;
-  border-bottom:0.5px solid rgba(228,215,188,0.08);
+  display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
+  gap:1.25rem; padding-bottom:1.5rem;
+  border-bottom:0.5px solid rgba(74,56,45,0.14);
 }
-.footer-marca-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--bege); margin-bottom:0.4rem; }
-.footer-tagline { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--bege); opacity:0.28; }
-.footer-col-titulo { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--bege); opacity:0.35; margin-bottom:1rem; }
-.footer-link { display:block; font-size:0.82rem; color:var(--bege); opacity:0.55; text-decoration:none; margin-bottom:0.4rem; transition:opacity 0.2s; }
+.footer-marca-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.05rem; color:var(--marrom); margin-bottom:0.3rem; }
+.footer-tagline { font-family:'IBM Plex Mono',monospace; font-size:0.46rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.45; }
+.footer-contato { display:flex; flex-wrap:wrap; gap:0.3rem 1.5rem; }
+.footer-link { display:inline-block; font-size:0.8rem; color:var(--marrom); opacity:0.6; text-decoration:none; transition:opacity 0.2s; }
 .footer-link:hover { opacity:1; }
-.footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:2.5rem; flex-wrap:wrap; gap:1rem; }
-.footer-cnpj { font-family:'IBM Plex Mono',monospace; font-size:0.46rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--bege); opacity:0.22; }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:1.25rem; flex-wrap:wrap; gap:0.6rem; }
+.footer-cnpj { font-family:'IBM Plex Mono',monospace; font-size:0.44rem; letter-spacing:0.13em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+.footer-cnpj .footer-link { font-size:0.44rem; letter-spacing:0.13em; text-transform:uppercase; opacity:0.75; font-family:'IBM Plex Mono',monospace; }
 
 /* ── ECOSSISTEMA (visão dos 3 produtos — teaser da home) ── */
 .eco-lista { display:flex; flex-direction:column; }
@@ -479,20 +483,6 @@ footer { background:var(--marrom); padding:4rem 6vw; }
 }
 .produto.bg-azul { background:var(--azul); }
 
-/* Cards empilhados: cada produto fica fixo na tela e o próximo sobe por cima,
-   cobrindo o anterior, conforme o usuário rola. Só em telas largas — no
-   mobile o conteúdo em coluna única costuma passar de 100vh, e o efeito
-   cortaria conteúdo. */
-@media (min-width:901px) {
-  #dmd, #lab, #ecoa {
-    position:sticky; top:0;
-    min-height:100vh;
-    border-bottom:none;
-  }
-  #dmd { z-index:1; }
-  #lab { z-index:2; }
-  #ecoa { z-index:3; }
-}
 .produto-subtitulo {
   font-family:'IBM Plex Mono',monospace; font-size:0.62rem;
   letter-spacing:0.16em; text-transform:uppercase;
@@ -820,8 +810,10 @@ footer { background:var(--marrom); padding:4rem 6vw; }
 .disclosure-item { border-top:0.5px solid rgba(74,56,45,0.12); padding:1.5rem 0; }
 .modulo.escuro .disclosure-item { border-top-color:rgba(250,247,242,0.12); }
 .disclosure-top { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-.disclosure-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--marrom); }
+.disclosure-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--marrom); display:block; }
 .modulo.escuro .disclosure-nome { color:var(--off); }
+.disclosure-teaser { font-size:0.85rem; line-height:1.7; color:var(--marrom); opacity:0.65; margin:0.6rem 0 0.9rem; max-width:38rem; }
+.modulo.escuro .disclosure-teaser { color:var(--bege); opacity:0.75; }
 .disclosure-trigger {
   background:none; border:none; cursor:pointer; padding:0;
   font-family:'IBM Plex Mono',monospace; font-size:0.54rem;
@@ -847,25 +839,33 @@ footer { background:var(--marrom); padding:4rem 6vw; }
 
 /* ── PROCESSO (etapas — ECOA) ── */
 .etapas { display:flex; flex-direction:column; }
-.etapa-item { border-top:0.5px solid rgba(74,56,45,0.1); }
+.etapa-item { border-top:0.5px solid rgba(74,56,45,0.1); transition:background 0.3s ease; }
 .etapa-item:last-child { border-bottom:0.5px solid rgba(74,56,45,0.1); }
+.etapa-item.aberto { background:rgba(74,56,45,0.03); }
 .etapa-trigger {
   width:100%; background:none; border:none; cursor:pointer; text-align:left;
-  display:flex; align-items:center; gap:1.1rem; padding:1.25rem 0;
+  display:flex; align-items:center; gap:1.25rem; padding:1.25rem 0;
 }
 .etapa-letra {
-  width:2.4rem; height:2.4rem; flex-shrink:0;
+  width:3.2rem; height:3.2rem; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
-  font-family:'Qasbyne','Georgia',serif; font-size:1.1rem;
+  font-family:'Qasbyne','Georgia',serif; font-size:1.7rem;
   background:rgba(74,56,45,0.06); color:var(--marrom);
+  transition:background 0.3s ease, color 0.3s ease;
 }
-.etapa-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.05rem; color:var(--marrom); display:block; }
-.etapa-num { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+.etapa-item.aberto .etapa-letra { background:var(--marrom); color:var(--off); }
+.etapa-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--marrom); display:block; }
 .etapa-icon { margin-left:auto; opacity:0.4; transition:transform 0.3s; font-style:normal; font-size:1rem; }
 .etapa-item.aberto .etapa-icon { transform:rotate(45deg); opacity:1; }
 .etapa-body { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
-.etapa-item.aberto .etapa-body { max-height:200px; }
-.etapa-texto { font-size:0.85rem; line-height:1.7; color:var(--marrom); opacity:0.6; padding:0 0 1.25rem 3.5rem; }
+.etapa-item.aberto .etapa-body { max-height:260px; }
+.etapa-texto { font-size:0.85rem; line-height:1.7; color:var(--marrom); opacity:0.6; padding:0 0 1.25rem 4.45rem; }
+.ecoa-cta-futuro {
+  background:none; border:none; padding:0; margin-top:2rem;
+  font-family:'IBM Plex Mono',monospace; font-size:0.56rem;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.45; cursor:default;
+}
 
 /* ── NAV FINAL (cross-navegação de 3 vias ao fim de cada página) ── */
 .nav-final { background:var(--marrom); padding:0.25rem; margin:0 6vw; }
@@ -897,18 +897,24 @@ footer { background:var(--marrom); padding:4rem 6vw; }
   display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:center;
 }
 .casos-lista .caso:last-child { border-bottom:0.5px solid rgba(74,56,45,0.1); }
-.caso-topo { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; }
+.caso-topo { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:0.75rem; }
 .caso-tag { font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.14em; text-transform:uppercase; background:var(--azul); color:var(--marrom); padding:0.4rem 0.7rem; }
+.caso-topo-direita { display:flex; align-items:center; gap:0.9rem; }
+.caso-periodo { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--marrom); opacity:0.4; letter-spacing:0.1em; }
 .caso-contador { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--marrom); opacity:0.4; letter-spacing:0.1em; }
 .caso-img { aspect-ratio:4/3; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; }
 .caso-img-inner { width:100%; height:100%; display:flex; align-items:flex-end; padding:1.25rem; }
 .caso-img-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.3; }
 .caso-nome { font-family:'Qasbyne','Georgia',serif; font-size:clamp(1.6rem,3vw,2.3rem); color:var(--marrom); text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:1rem; }
 .caso-texto { font-size:0.9rem; line-height:1.8; color:var(--marrom); opacity:0.62; margin-bottom:1.5rem; }
-.caso-indicadores { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
-.caso-indicador { border:0.5px solid rgba(74,56,45,0.15); padding:1rem; }
-.caso-indicador-valor { font-family:'Qasbyne','Georgia',serif; font-size:1.1rem; color:var(--marrom); opacity:0.6; display:block; margin-bottom:0.5rem; }
-.caso-indicador-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+.caso-lista { display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:1.5rem; }
+.caso-contexto { font-family:'Qasbyne','Georgia',serif; font-style:italic; font-size:0.95rem; color:var(--marrom); opacity:0.7; line-height:1.6; margin:1rem 0 0; }
+.caso-indicadores { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.75rem; }
+.caso-indicadores .caso-indicador:only-child { grid-column:1/-1; }
+.caso-indicador { border:0.5px solid rgba(74,56,45,0.15); padding:1.1rem 1.25rem; }
+.caso-indicador-valor { font-family:'Qasbyne','Georgia',serif; font-size:2rem; color:var(--marrom); display:block; margin-bottom:0.4rem; line-height:1; }
+.caso-indicador-label { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.45; }
+.caso-nota { font-size:0.76rem; line-height:1.6; color:var(--marrom); opacity:0.5; margin-top:0.75rem; }
 
 /* ── FUNDADORES (Quem é a Verve) ── */
 .fundadores-img { aspect-ratio:4/5; max-height:520px; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; margin-bottom:2rem; }
