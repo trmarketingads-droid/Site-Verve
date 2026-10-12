@@ -1,12 +1,36 @@
-/* ── MÉTODO: seletor DMD / Verve Lab / ECOA (abas, por clique/toque) ── */
+/* ── MÉTODO: seletor DMD / Verve Lab / ECOA (abas, por clique/toque) ──
+ * Troca o conteúdo com fade + anima a altura do painel, para não gerar
+ * saltos bruscos de layout entre soluções com visuais de tamanhos diferentes. */
 function selecionarMetodo(chave, btn) {
   document.querySelectorAll('.metodo-tab').forEach(t => t.classList.remove('ativo'));
   btn.classList.add('ativo');
-  document.querySelectorAll('.metodo-conteudo').forEach(c => {
-    const ativo = c.dataset.conteudo === chave;
-    c.hidden = !ativo;
-    c.classList.toggle('ativo', ativo);
-  });
+
+  const painel = document.querySelector('.metodo-painel');
+  const atual = painel.querySelector('.metodo-conteudo:not([hidden])');
+  const novo = painel.querySelector('[data-conteudo="' + chave + '"]');
+  if (!novo || atual === novo) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    atual.hidden = true; atual.classList.remove('ativo');
+    novo.hidden = false; novo.classList.add('ativo');
+    return;
+  }
+
+  painel.style.height = painel.offsetHeight + 'px';
+  atual.style.opacity = '0';
+
+  setTimeout(() => {
+    atual.hidden = true;
+    atual.classList.remove('ativo');
+    novo.hidden = false;
+    novo.classList.add('ativo');
+    novo.style.opacity = '0';
+    const alturaNova = novo.scrollHeight;
+    painel.style.height = alturaNova + 'px';
+    requestAnimationFrame(() => { novo.style.opacity = '1'; });
+    setTimeout(() => { painel.style.height = ''; }, 350);
+  }, 200);
 }
 
 /* ── ECOA: diagrama circular (E-C-O-A) ── */
@@ -25,6 +49,13 @@ function selecionarEtapaCircular(chave, btn) {
   diagrama.querySelector('[data-painel-texto]').textContent = dados.texto;
 }
 
+/* ── PROJETOS: expandir resultado adicional do case ── */
+function alternarCasoExtra(btn) {
+  const card = btn.closest('.projeto-card');
+  const aberto = card.classList.toggle('aberto');
+  btn.textContent = aberto ? '− Ver menos' : '+ Ver mais';
+}
+
 /* ── PROJETOS: carrossel (setas + toque nativo via scroll-snap) ── */
 function moverCarrossel(direcao) {
   const track = document.getElementById('projetosTrack');
@@ -36,6 +67,31 @@ function moverCarrossel(direcao) {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   track.scrollBy({ left: direcao * largura, behavior: reduced ? 'auto' : 'smooth' });
 }
+
+/* Indicadores (dots) do carrossel — acompanham o card mais visível */
+(function () {
+  const track = document.getElementById('projetosTrack');
+  const dots = document.querySelectorAll('.projetos-dot');
+  if (!track || !dots.length) return;
+
+  let ticking = false;
+  function atualizar() {
+    const cards = Array.from(track.querySelectorAll('.projeto-card'));
+    const centro = track.scrollLeft + track.clientWidth / 2;
+    let idx = 0;
+    let menorDist = Infinity;
+    cards.forEach((card, i) => {
+      const dist = Math.abs((card.offsetLeft + card.offsetWidth / 2) - centro);
+      if (dist < menorDist) { menorDist = dist; idx = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('ativo', i === idx));
+    ticking = false;
+  }
+  track.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(atualizar); ticking = true; }
+  }, { passive: true });
+  atualizar();
+})();
 
 /*
  * Formulário de interesse (Contato) — hoje apenas confirma o envio na
