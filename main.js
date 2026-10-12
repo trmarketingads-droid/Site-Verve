@@ -19,16 +19,22 @@ function selecionarMetodo(chave, btn) {
 
   painel.style.height = painel.offsetHeight + 'px';
   atual.style.opacity = '0';
+  atual.style.transform = 'translateX(-14px)';
 
   setTimeout(() => {
     atual.hidden = true;
     atual.classList.remove('ativo');
+    atual.style.transform = '';
     novo.hidden = false;
     novo.classList.add('ativo');
     novo.style.opacity = '0';
+    novo.style.transform = 'translateX(14px)';
     const alturaNova = novo.scrollHeight;
     painel.style.height = alturaNova + 'px';
-    requestAnimationFrame(() => { novo.style.opacity = '1'; });
+    requestAnimationFrame(() => {
+      novo.style.opacity = '1';
+      novo.style.transform = 'translateX(0)';
+    });
     setTimeout(() => { painel.style.height = ''; }, 350);
   }, 200);
 }
@@ -47,6 +53,25 @@ function selecionarEtapaCircular(chave, btn) {
   const dados = ECOA_ETAPAS[chave];
   diagrama.querySelector('[data-painel-n]').textContent = dados.n;
   diagrama.querySelector('[data-painel-texto]').textContent = dados.texto;
+
+  const arco = diagrama.querySelector('.ecoa-arco');
+  if (arco) {
+    const indice = ['e', 'c', 'o', 'a'].indexOf(chave);
+    const cx = 110, cy = 110, r = 86;
+    const ponto = (graus) => {
+      const rad = (graus - 90) * Math.PI / 180;
+      return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+    };
+    const sweep = indice * 90;
+    if (sweep <= 0) {
+      arco.setAttribute('d', '');
+    } else {
+      const inicio = ponto(0);
+      const fim = ponto(sweep);
+      const large = sweep > 180 ? 1 : 0;
+      arco.setAttribute('d', `M ${inicio.x} ${inicio.y} A ${r} ${r} 0 ${large} 1 ${fim.x} ${fim.y}`);
+    }
+  }
 }
 
 /* ── PROJETOS: expandir resultado adicional do case ── */

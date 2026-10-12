@@ -77,14 +77,13 @@ nav {
   padding:9rem 6vw 4.5rem;
   border-bottom:1px solid rgba(74,56,45,0.1);
 }
-.hero-marca-grafica {
-  position:absolute; top:-8rem; right:-8rem; width:26rem; height:26rem;
-  border:1px solid rgba(74,56,45,0.14); border-radius:50%; pointer-events:none;
+.hero-wordmark {
+  position:absolute; top:52%; left:52%; transform:translate(-50%,-50%);
+  font-family:'Qasbyne','Georgia',serif; font-size:clamp(9rem,26vw,19rem);
+  color:rgba(74,56,45,0.045); white-space:nowrap; line-height:1;
+  z-index:0; pointer-events:none; user-select:none;
 }
-.hero-marca-grafica::before {
-  content:''; position:absolute; inset:3rem; border:1px solid rgba(85,11,24,0.12); border-radius:50%;
-}
-.hero-conteudo { position:relative; max-width:720px; }
+.hero-conteudo { position:relative; z-index:1; max-width:720px; }
 .hero-linha { width:2.5rem; height:2px; background:var(--vinho); margin-bottom:1.5rem; }
 .hero-headline {
   font-family:'Qasbyne','Georgia',serif;
@@ -97,6 +96,9 @@ nav {
   font-size:1rem; line-height:1.75;
   color:var(--marrom); opacity:0.65; max-width:460px; margin-bottom:2.25rem;
 }
+.hero-marcas { display:flex; gap:1.25rem; flex-wrap:wrap; margin-top:3rem; position:relative; z-index:1; }
+.hero-marcas span { font-family:'IBM Plex Mono',monospace; font-size:0.54rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--marrom); opacity:0.4; }
+.hero-marcas span.sep { opacity:0.2; }
 .btn {
   display:inline-flex; align-items:center; gap:0.75rem;
   font-family:'IBM Plex Mono',monospace; font-size:0.58rem;
@@ -141,7 +143,7 @@ nav {
 .metodo-tab:hover { opacity:0.9; border-color:var(--marrom); }
 .metodo-tab.ativo { background:var(--marrom); color:var(--off); opacity:1; border-color:var(--marrom); }
 .metodo-painel { max-width:900px; margin-top:2.75rem; overflow:hidden; transition:height 0.35s ease; }
-.metodo-conteudo { transition:opacity 0.25s ease; }
+.metodo-conteudo { transition:opacity 0.3s ease, transform 0.3s ease; }
 .metodo-badge {
   font-family:'IBM Plex Mono',monospace; font-size:0.52rem;
   letter-spacing:0.16em; text-transform:uppercase;
@@ -171,26 +173,35 @@ nav {
   position:absolute; transform:translate(-50%,-50%);
   font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.08em;
   color:var(--marrom); background:var(--off); border:1px solid rgba(74,56,45,0.3);
-  padding:0.45rem 0.75rem; white-space:nowrap;
+  padding:0.45rem 0.75rem; white-space:nowrap; transition:border-color 0.2s ease, color 0.2s ease;
 }
+.dmd-no:not(.centro):hover { border-color:var(--vinho); color:var(--vinho); }
 .dmd-no.centro { font-family:'Qasbyne','Georgia',serif; font-size:1.3rem; border-color:var(--marrom); background:var(--marrom); color:var(--off); padding:0.6rem 1.1rem; }
 .dmd-mapa-mobile { display:none; }
 
-/* ── VERVE LAB · FLUXO ── */
-.lab-fluxo { display:flex; align-items:center; gap:0; margin-top:0.5rem; max-width:560px; flex-wrap:wrap; }
-.lab-no { display:flex; flex-direction:column; align-items:center; gap:0.6rem; text-align:center; flex:1; min-width:100px; }
-.lab-no-marca { width:2.75rem; height:2.75rem; border:1px solid var(--marrom); display:flex; align-items:center; justify-content:center; font-family:'Qasbyne','Georgia',serif; font-size:1.1rem; color:var(--marrom); }
-.lab-no-nome { font-family:'IBM Plex Mono',monospace; font-size:0.56rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--marrom); opacity:0.7; }
-.lab-linha { flex:0 0 2.5rem; height:1px; background:rgba(74,56,45,0.3); margin-top:-1.6rem; }
+/* ── VERVE LAB · PALCO + BLOCOS MODULARES ── */
+.lab-palco { background:rgba(209,226,236,0.3); padding:2rem; margin-top:0.5rem; }
+.lab-modulos { display:grid; grid-template-columns:repeat(4,1fr); gap:0.85rem; }
+.lab-modulo { background:var(--off); border:1px solid rgba(74,56,45,0.2); padding:1rem 0.9rem; transition:border-color 0.2s ease, transform 0.2s ease; }
+.lab-modulo:nth-child(2n) { margin-top:1.1rem; }
+.lab-modulo:hover { border-color:var(--marrom); transform:translateY(-3px); }
+.lab-modulo-n { font-family:'IBM Plex Mono',monospace; font-size:0.48rem; color:var(--marrom); opacity:0.4; display:block; margin-bottom:0.6rem; }
+.lab-modulo-nome { font-family:'Qasbyne','Georgia',serif; font-size:0.98rem; color:var(--marrom); display:block; line-height:1.2; }
 .lab-planos { display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:1.75rem; }
 .lab-plano-nome { font-family:'Qasbyne','Georgia',serif; font-size:1rem; color:var(--marrom); }
-.lab-plano-texto { font-size:0.78rem; color:var(--marrom); opacity:0.6; margin-top:0.2rem; max-width:220px; }
+.lab-plano-texto { font-size:0.78rem; color:var(--marrom); opacity:0.65; margin-top:0.2rem; max-width:220px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-modulo { transition:none; }
+  .lab-modulo:hover { transform:none; }
+}
 
 /* ── ECOA · PALCO DE CONTRASTE + DIAGRAMA CIRCULAR ── */
 .ecoa-palco { background:var(--marrom); padding:2.5rem; margin-top:0.5rem; }
 .ecoa-diagrama { display:grid; grid-template-columns:auto 1fr; gap:3rem; align-items:center; }
-.ecoa-circulo { position:relative; width:220px; height:220px; flex-shrink:0; }
-.ecoa-circulo svg { width:100%; height:100%; display:block; }
+.ecoa-circulo { position:relative; width:240px; height:240px; flex-shrink:0; }
+.ecoa-circulo svg { width:100%; height:100%; display:block; overflow:visible; }
+.ecoa-arco { transition:d 0.3s ease; }
 .ecoa-no {
   position:absolute; transform:translate(-50%,-50%);
   width:2.75rem; height:2.75rem; border-radius:50%;
@@ -224,30 +235,30 @@ nav {
 }
 .projetos-track::-webkit-scrollbar { display:none; }
 .projeto-card {
-  flex:0 0 min(340px,80vw); scroll-snap-align:start;
+  flex:0 0 min(320px,78vw); scroll-snap-align:start;
   border:1px solid rgba(74,56,45,0.18);
 }
-.projeto-card-img { aspect-ratio:4/3; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; }
+.projeto-card-img { aspect-ratio:16/10; background:rgba(74,56,45,0.04); overflow:hidden; position:relative; }
 .projeto-card-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.projeto-card-corpo { padding:1.1rem 1.25rem 1.25rem; }
-.caso-tag { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.14em; text-transform:uppercase; background:var(--azul); color:var(--marrom); padding:0.35rem 0.6rem; display:inline-block; margin-bottom:0.75rem; }
-.caso-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.2rem; color:var(--marrom); letter-spacing:-0.01em; margin-bottom:0.5rem; }
-.caso-texto { font-size:0.8rem; line-height:1.6; color:var(--marrom); opacity:0.62; margin-bottom:0.85rem; }
-.caso-resultado { display:flex; align-items:baseline; gap:0.5rem; border-top:0.5px solid rgba(74,56,45,0.14); padding-top:0.85rem; }
-.caso-resultado-valor { font-family:'Qasbyne','Georgia',serif; font-size:1.7rem; color:var(--vinho); line-height:1; }
-.caso-resultado-label { font-family:'IBM Plex Mono',monospace; font-size:0.44rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--marrom); opacity:0.55; }
+.projeto-card-corpo { padding:1rem 1.15rem 1.15rem; }
+.caso-tag { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.14em; text-transform:uppercase; background:var(--azul); color:var(--marrom); padding:0.35rem 0.6rem; display:inline-block; margin-bottom:0.65rem; }
+.caso-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.1rem; color:var(--marrom); letter-spacing:-0.01em; margin-bottom:0.65rem; }
+.caso-texto { font-size:0.8rem; line-height:1.6; color:var(--marrom); opacity:0.65; }
+.caso-resultado { display:flex; align-items:baseline; gap:0.5rem; }
+.caso-resultado-valor { font-family:'Qasbyne','Georgia',serif; font-size:1.6rem; color:var(--vinho); line-height:1; }
+.caso-resultado-label { font-family:'IBM Plex Mono',monospace; font-size:0.42rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--marrom); opacity:0.55; }
 .caso-mais-btn {
-  background:none; border:none; cursor:pointer; padding:0; margin-top:0.75rem;
-  font-family:'IBM Plex Mono',monospace; font-size:0.48rem; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--marrom); opacity:0.5; transition:opacity 0.2s;
+  background:none; border:none; cursor:pointer; padding:0; margin-top:0.65rem;
+  font-family:'IBM Plex Mono',monospace; font-size:0.46rem; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--marrom); opacity:0.45; transition:opacity 0.2s;
 }
 .caso-mais-btn:hover { opacity:0.85; }
-.caso-extra { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
-.projeto-card.aberto .caso-extra { max-height:160px; margin-top:0.75rem; }
-.caso-extra-item { display:flex; align-items:baseline; gap:0.5rem; }
-.caso-extra-valor { font-family:'Qasbyne','Georgia',serif; font-size:1.2rem; color:var(--marrom); }
-.caso-extra-label { font-family:'IBM Plex Mono',monospace; font-size:0.44rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--marrom); opacity:0.55; }
-.caso-extra-quote { font-family:'Qasbyne','Georgia',serif; font-style:italic; font-size:1.1rem; color:var(--vinho); }
+.caso-extra { max-height:0; overflow:hidden; transition:max-height 0.3s ease; border-top:0.5px solid rgba(74,56,45,0.14); }
+.projeto-card.aberto .caso-extra { max-height:220px; margin-top:0.65rem; padding-top:0.65rem; }
+.caso-extra-item { display:flex; align-items:baseline; gap:0.5rem; margin-top:0.5rem; }
+.caso-extra-valor { font-family:'Qasbyne','Georgia',serif; font-size:1.1rem; color:var(--marrom); }
+.caso-extra-label { font-family:'IBM Plex Mono',monospace; font-size:0.42rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--marrom); opacity:0.55; }
+.caso-extra-quote { font-family:'Qasbyne','Georgia',serif; font-style:italic; font-size:1rem; color:var(--vinho); margin-bottom:0.65rem; }
 
 .projetos-controles { display:flex; align-items:center; justify-content:flex-end; gap:1.25rem; margin-top:1.5rem; }
 .projetos-dots { display:flex; gap:0.4rem; margin-right:auto; }
@@ -266,14 +277,14 @@ nav {
   .projetos-controles { display:none; }
 }
 
-/* ── QUEM SOMOS (Bruna / Thalles) — faixa horizontal compacta ── */
-.sobre { padding:4rem 6vw; border-bottom:1px solid rgba(74,56,45,0.1); }
+/* ── QUEM SOMOS (Bruna / Thalles) — faixa horizontal compacta, apoio em azul ── */
+.sobre { padding:4rem 6vw; border-bottom:1px solid rgba(74,56,45,0.1); background:rgba(209,226,236,0.14); }
 .fundadores-linha { display:flex; gap:3rem; flex-wrap:wrap; }
-.fundador-mini { display:flex; gap:1.1rem; align-items:flex-start; flex:1; min-width:260px; }
-.fundador-mini-foto { width:84px; height:84px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid rgba(74,56,45,0.2); }
-.fundador-mini-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.15rem; color:var(--marrom); }
-.fundador-mini-tag { font-family:'IBM Plex Mono',monospace; font-size:0.46rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--vinho); opacity:0.85; display:block; margin:0.2rem 0 0.5rem; }
-.fundador-mini-texto { font-size:0.82rem; line-height:1.65; color:var(--marrom); opacity:0.65; max-width:320px; }
+.fundador-mini { display:flex; gap:1rem; align-items:flex-start; flex:1; min-width:260px; }
+.fundador-mini-foto { width:68px; height:68px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid rgba(74,56,45,0.25); }
+.fundador-mini-nome { font-family:'Qasbyne','Georgia',serif; font-size:1.1rem; color:var(--marrom); }
+.fundador-mini-tag { font-family:'IBM Plex Mono',monospace; font-size:0.44rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--vinho); opacity:0.85; display:block; margin:0.2rem 0 0.5rem; }
+.fundador-mini-texto { font-size:0.8rem; line-height:1.6; color:var(--marrom); opacity:0.68; max-width:300px; }
 
 /* ── FORMULÁRIO (Contato) ── */
 .modulo { padding:4rem 6vw; border-bottom:1px solid rgba(74,56,45,0.1); }
@@ -394,12 +405,12 @@ body.saindo { opacity:0; }
   body { padding-bottom:4.25rem; }
   .nav-links { display:none; }
   nav .nav-cta { display:none; }
-  .hero-marca-grafica { width:18rem; height:18rem; top:-6rem; right:-7rem; }
   .ecoa-diagrama { grid-template-columns:1fr; gap:1.75rem; justify-items:center; text-align:center; }
   .ecoa-painel-texto { max-width:380px; margin:0 auto; }
   .ecoa-palco { padding:2rem 1.5rem; }
+  .ecoa-circulo { width:220px; height:220px; }
   .dmd-mapa { height:260px; }
-  .lab-fluxo { justify-content:center; }
+  .lab-palco { padding:1.5rem; }
   .fundadores-linha { gap:2rem; }
 }
 @media(max-width:600px){
@@ -407,7 +418,10 @@ body.saindo { opacity:0; }
   .cookie-bar { flex-direction:column; align-items:flex-start; }
   .ecoa-circulo { width:190px; height:190px; }
   .fundador-mini { flex-direction:column; align-items:flex-start; }
-  .fundador-mini-foto { width:64px; height:64px; }
+  .fundador-mini-foto { width:56px; height:56px; }
+  .lab-modulos { grid-template-columns:repeat(2,1fr); }
+  .lab-modulo:nth-child(2n) { margin-top:0; }
+  .lab-modulo:nth-child(n+3) { margin-top:0.85rem; }
 }
 /* Em telas estreitas, os rótulos do mapa do DMD colidem entre si — troca
    pelo mesmo padrão de chips já usado em outras soluções, sem perder a

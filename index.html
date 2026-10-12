@@ -7,7 +7,7 @@
 <title>Verve Marketing</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
-<link href="style.css?v=5" rel="stylesheet">
+<link href="style.css?v=6" rel="stylesheet">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -28,7 +28,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-marca-grafica" aria-hidden="true"></div>
+  <p class="hero-wordmark qa" aria-hidden="true">Verve</p>
   <div class="hero-conteudo">
     <div class="hero-linha reveal" aria-hidden="true"></div>
     <h1 class="hero-headline qa split-reveal">Sua empresa cresceu. Sua comunicação precisa acompanhar.</h1>
@@ -38,6 +38,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Conversar com a Verve
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
+    </div>
+    <div class="hero-marcas ibm reveal" aria-hidden="true">
+      <span>DMD</span><span class="sep">·</span><span>Verve Lab</span><span class="sep">·</span><span>ECOA</span>
     </div>
   </div>
 </section>
@@ -90,31 +93,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3 class="metodo-nome qa">Verve Lab</h3>
       <p class="metodo-texto">Agência boutique de marketing: um time dedicado a transformar estratégia em presença de marca, de forma contínua.</p>
 
-      <div class="lab-fluxo">
-        <div class="lab-no">
-          <div class="lab-no-marca qa">01</div>
-          <span class="lab-no-nome ibm">Planejar</span>
+      <div class="lab-palco">
+        <div class="lab-modulos">
+          <div class="lab-modulo">
+            <span class="lab-modulo-n ibm">01</span>
+            <span class="lab-modulo-nome qa">Planejamento</span>
+          </div>
+          <div class="lab-modulo">
+            <span class="lab-modulo-n ibm">02</span>
+            <span class="lab-modulo-nome qa">Conteúdo</span>
+          </div>
+          <div class="lab-modulo">
+            <span class="lab-modulo-n ibm">03</span>
+            <span class="lab-modulo-nome qa">Publicação</span>
+          </div>
+          <div class="lab-modulo">
+            <span class="lab-modulo-n ibm">04</span>
+            <span class="lab-modulo-nome qa">Acompanhamento</span>
+          </div>
         </div>
-        <div class="lab-linha" aria-hidden="true"></div>
-        <div class="lab-no">
-          <div class="lab-no-marca qa">02</div>
-          <span class="lab-no-nome ibm">Criar</span>
-        </div>
-        <div class="lab-linha" aria-hidden="true"></div>
-        <div class="lab-no">
-          <div class="lab-no-marca qa">03</div>
-          <span class="lab-no-nome ibm">Publicar</span>
-        </div>
-      </div>
 
-      <div class="lab-planos">
-        <div>
-          <span class="lab-plano-nome qa">Communiqué</span>
-          <p class="lab-plano-texto">Produção com autonomia do cliente para a rotina das redes.</p>
-        </div>
-        <div>
-          <span class="lab-plano-nome qa">Totale</span>
-          <p class="lab-plano-texto">Produção, gestão e mídia em uma operação mais integrada.</p>
+        <div class="lab-planos">
+          <div>
+            <span class="lab-plano-nome qa">Communiqué</span>
+            <p class="lab-plano-texto">Produção com autonomia do cliente para a rotina das redes.</p>
+          </div>
+          <div>
+            <span class="lab-plano-nome qa">Totale</span>
+            <p class="lab-plano-texto">Produção, gestão e mídia em uma operação mais integrada.</p>
+          </div>
         </div>
       </div>
 
@@ -131,6 +138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ecoa-circulo">
             <svg viewBox="0 0 220 220" aria-hidden="true">
               <circle cx="110" cy="110" r="86" fill="none" stroke="rgba(250,247,242,0.25)" stroke-width="1" stroke-dasharray="2 6"/>
+              <path class="ecoa-arco" id="ecoaArco" fill="none" stroke="var(--off)" stroke-width="2" stroke-linecap="round"/>
             </svg>
             <button class="ecoa-no ativo qa" style="top:0;left:50%" onclick="selecionarEtapaCircular('e', this)" aria-label="Estruturar">E</button>
             <button class="ecoa-no qa" style="top:50%;left:100%" onclick="selecionarEtapaCircular('c', this)" aria-label="Comunicar">C</button>
@@ -162,8 +170,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="projeto-card-corpo">
           <span class="caso-tag ibm">DMD</span>
           <h3 class="caso-nome qa">Condomínio Residencial</h3>
-          <p class="caso-texto">Transformamos um loteamento em uma marca com território, narrativa e direção próprias.</p>
-          <p class="caso-extra-quote qa">"É preciso viver."</p>
+          <p class="caso-extra-quote qa" style="margin-bottom:0">"É preciso viver."</p>
+          <button class="caso-mais-btn ibm" onclick="alternarCasoExtra(this)">+ Ver mais</button>
+          <div class="caso-extra">
+            <p class="caso-texto">Transformamos um loteamento em uma marca com território, narrativa e direção próprias.</p>
+          </div>
         </div>
       </article>
 
@@ -172,13 +183,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="projeto-card-corpo">
           <span class="caso-tag ibm">ECOA</span>
           <h3 class="caso-nome qa">Escola de Idiomas</h3>
-          <p class="caso-texto">Aplicação do ECOA para estruturar oferta, comunicação e mídia paga na captação de alunos.</p>
           <div class="caso-resultado">
             <span class="caso-resultado-valor qa">5x</span>
             <span class="caso-resultado-label ibm">ROAS inicial</span>
           </div>
           <button class="caso-mais-btn ibm" onclick="alternarCasoExtra(this)">+ Ver mais</button>
           <div class="caso-extra">
+            <p class="caso-texto">Aplicação do ECOA para estruturar oferta, comunicação e mídia paga na captação de alunos.</p>
             <div class="caso-extra-item">
               <span class="caso-extra-valor qa">15%</span>
               <span class="caso-extra-label ibm">Conversão de lead em matrícula</span>
@@ -192,13 +203,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="projeto-card-corpo">
           <span class="caso-tag ibm">VERVE LAB</span>
           <h3 class="caso-nome qa">Ateliê de Alta Costura</h3>
-          <p class="caso-texto">Em quatro meses, a presença orgânica da marca cresceu em relação ao período anterior.</p>
           <div class="caso-resultado">
             <span class="caso-resultado-valor qa">+55%</span>
             <span class="caso-resultado-label ibm">Visitas orgânicas no Instagram</span>
           </div>
           <button class="caso-mais-btn ibm" onclick="alternarCasoExtra(this)">+ Ver mais</button>
           <div class="caso-extra">
+            <p class="caso-texto">Em quatro meses, a presença orgânica da marca cresceu em relação ao período anterior.</p>
             <div class="caso-extra-item">
               <span class="caso-extra-valor qa">+90%</span>
               <span class="caso-extra-label ibm">Melhora na retenção dos Stories</span>
@@ -324,7 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script src="main.js?v=5"></script>
+<script src="main.js?v=6"></script>
 <script src="consent.js?v=2"></script>
 </body>
 </html>
