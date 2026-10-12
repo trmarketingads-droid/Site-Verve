@@ -1,53 +1,44 @@
-function toggleServ(btn) {
-  const item = btn.parentElement;
-  const aberto = item.classList.contains('aberto');
-  document.querySelectorAll('.serv-acc-item').forEach(i => i.classList.remove('aberto'));
-  if (!aberto) item.classList.add('aberto');
-}
-
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  const aberto = item.classList.contains('aberto');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('aberto'));
-  if (!aberto) item.classList.add('aberto');
-}
-
-function toggleDisclosure(btn) {
-  const item = btn.closest('.disclosure-item');
-  const aberto = item.classList.contains('aberto');
-  item.classList.toggle('aberto', !aberto);
-  btn.textContent = aberto ? '[ Saiba mais → ]' : '[ Fechar × ]';
-}
-
-function toggleEtapa(btn) {
-  const item = btn.closest('.etapa-item');
-  const aberto = item.classList.contains('aberto');
-  document.querySelectorAll('.etapa-item').forEach(i => i.classList.remove('aberto'));
-  if (!aberto) item.classList.add('aberto');
-}
-
-/* Etapas (ECOA) — abrem também ao passar o mouse em dispositivos com hover fino (desktop) */
-(function () {
-  if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-  document.querySelectorAll('.etapa-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      document.querySelectorAll('.etapa-item').forEach(i => i.classList.remove('aberto'));
-      item.classList.add('aberto');
-    });
-  });
-})();
-
-function filtrarCasos(categoria, btn) {
-  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+/* ── MÉTODO: seletor DMD / Verve Lab / ECOA (abas, por clique/toque) ── */
+function selecionarMetodo(chave, btn) {
+  document.querySelectorAll('.metodo-tab').forEach(t => t.classList.remove('ativo'));
   btn.classList.add('ativo');
-  document.querySelectorAll('.caso').forEach(caso => {
-    const mostrar = categoria === 'todos' || caso.dataset.categoria === categoria;
-    caso.style.display = mostrar ? 'grid' : 'none';
+  document.querySelectorAll('.metodo-conteudo').forEach(c => {
+    const ativo = c.dataset.conteudo === chave;
+    c.hidden = !ativo;
+    c.classList.toggle('ativo', ativo);
   });
+}
+
+/* ── ECOA: diagrama circular (E-C-O-A) ── */
+const ECOA_ETAPAS = {
+  e: { n: '01 — ESTRUTURAR', texto: 'Organizar o que será levado ao mercado: negócio, produto ou serviço, oferta, objetivo e direcionamento comercial.' },
+  c: { n: '02 — COMUNICAR', texto: 'Transformar a oferta em uma mensagem clara, com argumento, intenção de venda e direção criativa.' },
+  o: { n: '03 — OPERAR', texto: 'Colocar a estratégia de mídia paga em execução, estruturando campanhas, públicos, distribuição, testes e gestão.' },
+  a: { n: '04 — APRIMORAR', texto: 'Analisar o que foi feito, aprender com os dados, testar novas possibilidades, potencializar o que está funcionando e continuar evoluindo a operação.' }
+};
+function selecionarEtapaCircular(chave, btn) {
+  const diagrama = btn.closest('.ecoa-diagrama');
+  diagrama.querySelectorAll('.ecoa-no').forEach(n => n.classList.remove('ativo'));
+  btn.classList.add('ativo');
+  const dados = ECOA_ETAPAS[chave];
+  diagrama.querySelector('[data-painel-n]').textContent = dados.n;
+  diagrama.querySelector('[data-painel-texto]').textContent = dados.texto;
+}
+
+/* ── PROJETOS: carrossel (setas + toque nativo via scroll-snap) ── */
+function moverCarrossel(direcao) {
+  const track = document.getElementById('projetosTrack');
+  const card = track && track.querySelector('.projeto-card');
+  if (!card) return;
+  const estilo = getComputedStyle(track);
+  const gap = parseFloat(estilo.columnGap || estilo.gap || '0');
+  const largura = card.getBoundingClientRect().width + gap;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  track.scrollBy({ left: direcao * largura, behavior: reduced ? 'auto' : 'smooth' });
 }
 
 /*
- * Formulário de interesse (Quem é a Verve) — hoje apenas confirma o envio na
+ * Formulário de interesse (Contato) — hoje apenas confirma o envio na
  * própria página. Integração futura (e-mail / Google Sheets / CRM) deve
  * substituir o bloco abaixo por uma chamada real, mantendo a mesma captura
  * de dados do form e o mesmo estado de sucesso.
@@ -68,14 +59,6 @@ function enviarFormularioInteresse(event) {
 
   form.hidden = true;
   document.getElementById('formSucesso').hidden = false;
-}
-
-function toggleNav() {
-  const menu = document.getElementById('navMobile');
-  const btn = document.querySelector('.nav-toggle');
-  const aberto = menu.classList.toggle('aberto');
-  btn.classList.toggle('aberto', aberto);
-  document.body.style.overflow = aberto ? 'hidden' : '';
 }
 
 /* Reveal por palavra — quebra títulos .split-reveal em spans mascarados */
@@ -124,73 +107,22 @@ function toggleNav() {
   document.querySelectorAll(revealTargets).forEach(el => io.observe(el));
 })();
 
-/* Parallax sutil em elementos tipográficos grandes */
+/* Navegação — destaca no menu (topo e aba inferior) a seção visível na tela */
 (function () {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const items = document.querySelectorAll('.parallax');
-  if (reduced || !items.length) return;
+  const secoes = ['metodo', 'projetos', 'sobre']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  if (!secoes.length || !('IntersectionObserver' in window)) return;
 
-  let ticking = false;
-  function update() {
-    const vh = window.innerHeight;
-    items.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const center = rect.top + rect.height / 2;
-      const offset = (center - vh / 2) * 0.08;
-      el.style.transform = `translateY(${-offset}px)`;
+  const links = document.querySelectorAll('.nav-link, .tab-item');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      links.forEach(l => l.classList.toggle('ativo', l.getAttribute('href') === '#' + entry.target.id));
     });
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
-  update();
-})();
+  }, { rootMargin: '-45% 0px -45% 0px' });
 
-/*
- * bindScrollProgress — reporta o progresso (0 a 1) de um wrapper alto
- * conforme ele atravessa a viewport. Usado por seções sticky que revelam
- * conteúdo em etapas (manifesto) ou deslocam algo horizontalmente
- * (projetos). Ignorado sob prefers-reduced-motion (quem chama já trata o
- * fallback estático via CSS).
- */
-function bindScrollProgress(wrapper, onProgress) {
-  if (!wrapper) return;
-  let ticking = false;
-  function update() {
-    const rect = wrapper.getBoundingClientRect();
-    const total = rect.height - window.innerHeight;
-    let progress = total > 0 ? -rect.top / total : 0;
-    progress = Math.max(0, Math.min(1, progress));
-    onProgress(progress);
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(update);
-      ticking = true;
-    }
-  }, { passive: true });
-  update();
-}
-
-/* Manifesto — VERVE fica fixo, frases revelam conforme o scroll */
-(function () {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const wrapper = document.getElementById('manifestoScroll');
-  if (reduced || !wrapper) return;
-
-  const fases = Array.from(wrapper.querySelectorAll('.manifesto-fase'));
-  if (!fases.length) return;
-
-  bindScrollProgress(wrapper, (progress) => {
-    let idx = Math.floor(progress * fases.length);
-    if (idx >= fases.length) idx = fases.length - 1;
-    fases.forEach((el, i) => el.classList.toggle('ativa', i === idx));
-  });
+  secoes.forEach(s => io.observe(s));
 })();
 
 /* Transição fluida entre páginas — fade-out curto antes de navegar */
@@ -209,21 +141,5 @@ function bindScrollProgress(wrapper, onProgress) {
     e.preventDefault();
     document.body.classList.add('saindo');
     setTimeout(() => { window.location.href = href; }, 200);
-  });
-})();
-
-/* Projetos — painéis deslocam horizontalmente conforme o scroll vertical (desktop) */
-(function () {
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const wrapper = document.getElementById('projetosHscroll');
-  const track = document.getElementById('projetosHtrack');
-  if (reduced || !wrapper || !track) return;
-  if (!window.matchMedia('(min-width:901px)').matches) return;
-
-  bindScrollProgress(wrapper, (progress) => {
-    const sticky = wrapper.querySelector('.projetos-hsticky');
-    const max = track.scrollWidth - sticky.clientWidth;
-    if (max <= 0) return;
-    track.style.transform = `translateX(${-progress * max}px)`;
   });
 })();

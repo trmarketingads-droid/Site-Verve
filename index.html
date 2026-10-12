@@ -7,7 +7,7 @@
 <title>Verve Marketing</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
-<link href="style.css?v=2" rel="stylesheet">
+<link href="style.css?v=3" rel="stylesheet">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -17,17 +17,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-marca">verve marketing</a>
+  <a href="#top" class="nav-marca">verve marketing</a>
   <div class="nav-links ibm">
-    <a href="como-trabalhamos.html" class="nav-link">Como trabalhamos</a>
-    <a href="projetos.html" class="nav-link">Projetos</a>
-    <a href="quem-e-a-verve.html" class="nav-link">Quem é a Verve</a>
+    <a href="#metodo" class="nav-link">Método</a>
+    <a href="#projetos" class="nav-link">Projetos</a>
+    <a href="#sobre" class="nav-link">Quem somos</a>
   </div>
   <a href="https://wa.me/5544999259338" class="nav-cta ibm" target="_blank">Falar com a Verve →</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding-bottom:3rem">
+<section class="hero" id="top">
   <h1 class="hero-headline qa split-reveal">A comunicação certa transforma como sua marca é percebida.</h1>
   <div class="reveal">
     <p class="hero-tagline-grande qa">Fazemos hoje o que permanece amanhã.</p>
@@ -35,23 +35,192 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- OS TRÊS CAMINHOS -->
-<div class="caminhos reveal">
-  <div class="caminhos-grid">
-    <a href="como-trabalhamos.html" class="caminho-item">
-      <span class="caminho-nome qa">Como trabalhamos</span>
-      <span class="caminho-sub ibm">DMD · Verve Lab · ECOA</span>
-    </a>
-    <a href="projetos.html" class="caminho-item">
-      <span class="caminho-nome qa">Projetos</span>
-      <span class="caminho-sub ibm">Portfólio</span>
-    </a>
-    <a href="quem-e-a-verve.html" class="caminho-item">
-      <span class="caminho-nome qa">Quem é a Verve</span>
-      <span class="caminho-sub ibm">Agência boutique</span>
-    </a>
+<!-- MÉTODO: DMD / VERVE LAB / ECOA -->
+<section class="metodo" id="metodo">
+  <p class="sec-eyebrow ibm reveal">— Método</p>
+  <h2 class="sec-titulo qa reveal">Direção, presença e performance — em um só lugar.</h2>
+
+  <div class="metodo-tabs reveal">
+    <button class="metodo-tab ativo" onclick="selecionarMetodo('dmd', this)">DMD</button>
+    <button class="metodo-tab" onclick="selecionarMetodo('lab', this)">Verve Lab</button>
+    <button class="metodo-tab" onclick="selecionarMetodo('ecoa', this)">ECOA</button>
   </div>
-</div>
+
+  <div class="metodo-painel reveal">
+    <div class="metodo-conteudo ativo" data-conteudo="dmd">
+      <span class="metodo-badge ibm">Direção</span>
+      <h3 class="metodo-nome qa">DMD</h3>
+      <p class="metodo-texto">O DMD é a base estratégica da marca no digital — organiza como ela deve se posicionar e se comunicar antes de produzir conteúdo.</p>
+      <div class="metodo-chips">
+        <span class="modulo-tag">Posicionamento</span>
+        <span class="modulo-tag">Percepção</span>
+        <span class="modulo-tag">Narrativa</span>
+        <span class="modulo-tag">Linguagem</span>
+        <span class="modulo-tag">Direção da comunicação</span>
+      </div>
+    </div>
+
+    <div class="metodo-conteudo" data-conteudo="lab" hidden>
+      <span class="metodo-badge ibm">Presença</span>
+      <h3 class="metodo-nome qa">Verve Lab</h3>
+      <p class="metodo-texto">Agência boutique de marketing: um time dedicado a transformar estratégia em presença de marca, de forma contínua.</p>
+      <div class="metodo-planos">
+        <div>
+          <span class="metodo-plano-nome qa">Communiqué</span>
+          <p class="metodo-plano-texto">A Verve estrutura e produz a comunicação. A marca conduz a rotina das redes.</p>
+        </div>
+        <div>
+          <span class="metodo-plano-nome qa">Totale</span>
+          <p class="metodo-plano-texto">A Verve une estratégia, conteúdo, gestão e mídia em uma operação mais integrada à marca.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="metodo-conteudo" data-conteudo="ecoa" hidden>
+      <span class="metodo-badge ibm">Performance</span>
+      <h3 class="metodo-nome qa">ECOA</h3>
+      <p class="metodo-texto">O método da Verve para aplicação da mídia paga com direção, clareza e visão de negócio.</p>
+
+      <div class="ecoa-diagrama">
+        <div class="ecoa-circulo">
+          <svg viewBox="0 0 280 280" aria-hidden="true">
+            <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(74,56,45,0.18)" stroke-width="1" stroke-dasharray="2 6"/>
+          </svg>
+          <button class="ecoa-no ativo qa" style="top:0;left:50%" onclick="selecionarEtapaCircular('e', this)" aria-label="Estruturar">E</button>
+          <button class="ecoa-no qa" style="top:50%;left:100%" onclick="selecionarEtapaCircular('c', this)" aria-label="Comunicar">C</button>
+          <button class="ecoa-no qa" style="top:100%;left:50%" onclick="selecionarEtapaCircular('o', this)" aria-label="Operar">O</button>
+          <button class="ecoa-no qa" style="top:50%;left:0" onclick="selecionarEtapaCircular('a', this)" aria-label="Aprimorar">A</button>
+          <span class="ecoa-centro ibm">CICLO<br>CONTÍNUO</span>
+        </div>
+        <div>
+          <span class="ecoa-painel-n ibm" data-painel-n>01 — ESTRUTURAR</span>
+          <p class="ecoa-painel-texto" data-painel-texto>Organizar o que será levado ao mercado: negócio, produto ou serviço, oferta, objetivo e direcionamento comercial.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETOS: CARROSSEL -->
+<section class="projetos" id="projetos">
+  <p class="sec-eyebrow ibm reveal">— Resultados</p>
+  <h2 class="sec-titulo qa reveal">Projetos</h2>
+
+  <div class="projetos-carrossel reveal">
+    <div class="projetos-track" id="projetosTrack">
+      <article class="projeto-card">
+        <div class="caso-img"><img src="condominio-caso.jpg" alt="Condomínio residencial"></div>
+        <span class="caso-tag ibm">DMD</span>
+        <h3 class="caso-nome qa">Condomínio Residencial</h3>
+        <p class="caso-texto">Transformamos um loteamento em uma marca com território, narrativa e direção próprias.</p>
+        <p class="modulo-quote qa" style="font-size:1.3rem;color:var(--vinho)">"É preciso viver."</p>
+      </article>
+
+      <article class="projeto-card">
+        <div class="caso-img"><img src="escola-caso.jpg" alt="Escola de Idiomas"></div>
+        <span class="caso-tag ibm">ECOA</span>
+        <h3 class="caso-nome qa">Escola de Idiomas</h3>
+        <p class="caso-texto">Aplicação do ECOA para estruturar oferta, comunicação e mídia paga na captação de alunos.</p>
+        <div class="caso-indicadores">
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">15%</span>
+            <span class="caso-indicador-label ibm">Conversão de lead em matrícula</span>
+          </div>
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">5x</span>
+            <span class="caso-indicador-label ibm">ROAS inicial</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="projeto-card">
+        <div class="caso-img"><img src="atelie-caso.jpg" alt="Ateliê de Alta Costura"></div>
+        <span class="caso-tag ibm">VERVE LAB</span>
+        <h3 class="caso-nome qa">Ateliê de Alta Costura</h3>
+        <p class="caso-texto">Com quatro meses de trabalho, a presença orgânica da marca cresceu em comparação ao período anterior à entrada da Verve.</p>
+        <div class="caso-indicadores">
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">+55%</span>
+            <span class="caso-indicador-label ibm">Visitas orgânicas no Instagram</span>
+          </div>
+          <div class="caso-indicador">
+            <span class="caso-indicador-valor qa">+90%</span>
+            <span class="caso-indicador-label ibm">Melhora na retenção dos Stories</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="carrossel-setas">
+      <button class="carrossel-seta" onclick="moverCarrossel(-1)" aria-label="Projeto anterior">←</button>
+      <button class="carrossel-seta" onclick="moverCarrossel(1)" aria-label="Próximo projeto">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section class="sobre" id="sobre">
+  <p class="sec-eyebrow ibm reveal">— Quem somos</p>
+  <h2 class="sec-titulo qa reveal">Bruna e Thalles</h2>
+
+  <div class="fundadores-grid reveal-stagger">
+    <div class="fundador">
+      <div class="fundador-img"><img src="bruna.jpg" alt="Bruna, fundadora da Verve Marketing"></div>
+      <div class="fundador-top">
+        <span class="fundador-nome qa">Bruna</span>
+        <span class="fundador-tag ibm">Criação &amp; olhar</span>
+      </div>
+      <p class="fundador-texto">Criativa por natureza e estrategista por escolha — há oito anos transforma comunicação em direção, narrativa e negócio.</p>
+    </div>
+    <div class="fundador">
+      <div class="fundador-img"><img src="thalles.jpg" alt="Thalles, fundador da Verve Marketing"></div>
+      <div class="fundador-top">
+        <span class="fundador-nome qa">Thalles</span>
+        <span class="fundador-tag ibm">Mídia &amp; performance</span>
+      </div>
+      <p class="fundador-texto">Desde 2018 no mundo dos negócios, hoje atua com mídia e performance olhando sempre para o negócio como um todo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="modulo bege" id="contato">
+  <div class="modulo-card reveal">
+    <p class="modulo-label ibm">Vamos conversar?</p>
+    <h2 class="modulo-nome qa" style="margin-bottom:1rem">Quero entender se a Verve faz sentido para o meu negócio.</h2>
+    <p class="modulo-texto" style="margin-bottom:2rem">Deixe seus dados e entraremos em contato para entender melhor o seu momento.</p>
+    <form id="formInteresse" onsubmit="enviarFormularioInteresse(event)">
+      <div class="form-campo">
+        <label class="form-label ibm" for="nome">Nome</label>
+        <input class="form-input" type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
+      </div>
+      <div class="form-campo">
+        <label class="form-label ibm" for="empresa">Empresa ou marca</label>
+        <input class="form-input" type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa ou marca">
+      </div>
+      <div class="form-campo">
+        <label class="form-label ibm" for="email">E-mail</label>
+        <input class="form-input" type="email" id="email" name="email" placeholder="seu.email@empresa.com" required>
+      </div>
+      <div class="form-campo">
+        <label class="form-label ibm" for="telefone">Telefone</label>
+        <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+      </div>
+      <div class="form-campo">
+        <label class="form-label ibm" for="mensagem">Mensagem opcional</label>
+        <textarea class="form-input" id="mensagem" name="mensagem" rows="3" placeholder="Conte um pouco sobre o momento da sua marca, se quiser."></textarea>
+      </div>
+      <button type="submit" class="btn-light ibm">
+        Enviar contato
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
+    <div class="form-sucesso" id="formSucesso" hidden>
+      <p class="modulo-quote qa" style="margin-bottom:0.75rem">Recebemos seu contato.</p>
+      <p class="modulo-texto">Em breve alguém da Verve vai falar com você.</p>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -75,10 +244,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ABA INFERIOR (mobile) -->
 <nav class="tab-bar">
   <div class="tab-bar-grid">
-    <a href="index.html" class="tab-item ativo ibm"><span class="tab-item-marca"></span>Início</a>
-    <a href="como-trabalhamos.html" class="tab-item ibm"><span class="tab-item-marca"></span>Método</a>
-    <a href="projetos.html" class="tab-item ibm"><span class="tab-item-marca"></span>Projetos</a>
-    <a href="quem-e-a-verve.html" class="tab-item ibm"><span class="tab-item-marca"></span>Sobre</a>
+    <a href="#top" class="tab-item ibm"><span class="tab-item-marca"></span>Início</a>
+    <a href="#metodo" class="tab-item ibm"><span class="tab-item-marca"></span>Método</a>
+    <a href="#projetos" class="tab-item ibm"><span class="tab-item-marca"></span>Projetos</a>
+    <a href="#sobre" class="tab-item ibm"><span class="tab-item-marca"></span>Sobre</a>
   </div>
 </nav>
 
@@ -91,7 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<script src="main.js?v=2"></script>
+<script src="main.js?v=3"></script>
 <script src="consent.js?v=2"></script>
 </body>
 </html>
